@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/dist/style.css">
+    <title>JS Cube</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="scene">
+            <div id="cube">
+                <div class="side" id="back"><h2>BACK</h2></div>
+                <div class="side" id="left"><h2>LEFT</h2></div>
+                <div class="side" id="front"><h2>FRONT</h2></div>
+                <div class="side" id="right"><h2>RIGHT</h2></div>
+                <div class="side" id="top"><h2>TOP</h2></div>
+                <div class="side" id="bottom"><h2>BOTTOM</h2></div>
+                <!-- <div class="pieces"> -->
+                    <div class="piece" id="top_left_front"></div>
+                    <div class="multi_piece" id="top_front">
+                        <div class="piece" id="top_front-top"><h2>TFT</h2></div>
+                        <div class="piece" id="top_front-front"><h2>TFF</h2></div>
+                    </div>
+                    <div class="piece" id="top_front_right"></div>
+                    <div class="piece" id="left_front"></div>
+                    <div class="piece" id="front_center"><h2>FC</h2></div>
+                    <div class="piece" id="front_right"></div>
+                    <div class="piece" id="bottom_left_front"></div>
+                    <div class="multi_piece" id="bottom_front">
+                        <div class="piece" id="bottom_front-bottom"><h2>BFB</h2></div>
+                        <div class="piece" id="bottom_front-front"><h2>BFF</h2></div>
+                    </div>
+                    <div class="piece" id="bottom_front_right"></div>
+                    
+                    <div class="piece" id="top_right_back"></div>
+                    <div class="piece" id="top_back"></div>
+                    <div class="piece" id="top_back_left"></div>
+                    <div class="piece" id="right_back"></div>
+                    <div class="piece" id="back_center"><h2>BC</h2></div>
+                    <div class="piece" id="back_left"></div>
+                    <div class="piece" id="bottom_right_back"></div>
+                    <div class="piece" id="bottom_back"></div>
+                    <div class="piece" id="bottom_back_left"></div>
+                    <div class="piece" id="top_left"></div>
+                    <div class="piece" id="left_center"><h2>LC</h2></div>
+                    <div class="piece" id="bottom_left"></div>
+                    <div class="piece" id="top_right"></div>
+                    <div class="piece" id="right_center"><h2>RC</h2></div>
+                    <div class="piece" id="bottom_right"></div>
+                    <div class="piece" id="top_center"><h2>TC</h2></div>
+                    <div class="piece" id="bottom_center"><h2>BC</h2></div>
+                    <!-- <div class="piece" id="middle"></div> -->
+                <!-- </div> -->
+            </div>
+
+            <button class="btn_top">TOP</button>
+            <button class="btn_left">LEFT</button>
+            <button class="btn_right">RIGHT</button>
+            <button class="btn_bottom">BOTTOM</button>
+        </div>
+    </div>
+
+    <script src="/app/js/script.js"></script>
+</body>
+</html>
