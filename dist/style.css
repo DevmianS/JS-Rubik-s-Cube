@@ -1,11 +1,11 @@
 :root {
-  --front-color: rgba(33, 33, 240,1);
-  --top-color:  rgba(255, 255, 255, 1);
-  --bottom-color: rgba(255, 255, 0, 1);
-  --left-color: rgba(255, 0, 0,1);
-  --right-color: rgba(255, 166, 0, 1);
-  --back-color: rgba(0, 128, 0, 1);
-  --black-color: rgba(0, 0, 0, 1);
+  --front-color: rgba(33, 33, 240,0.5);
+  --top-color:  rgba(255, 255, 255, 0.5);
+  --bottom-color: rgba(255, 255, 0, 0.5);
+  --left-color: rgba(255, 0, 0,0.5);
+  --right-color: rgba(255, 0.566, 0, 0.5);
+  --back-color: rgba(0, 0.528, 0, 0.5);
+  --black-color: rgba(0, 0, 0, 0.5);
 }
 
 body {
@@ -27,7 +27,6 @@ body h2 {
   padding: 0;
   text-align: center;
   font-size: 30px;
-  visibility: hidden;
 }
 
 body button {
@@ -54,6 +53,11 @@ body .btn_bottom {
 
 body .btn_top {
   left: calc(50% - 10%);
+  top: -120px;
+}
+
+body .btn_reset {
+  left: -150px;
   top: -120px;
 }
 
