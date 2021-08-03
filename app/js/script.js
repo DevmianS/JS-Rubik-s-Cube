@@ -82,35 +82,35 @@ var translateZ = 150;
 
 
 function turnRight(){
-        yaw+=20;     
+        yaw+=30;     
         // if (yaw==360)yaw=0;
         turnYaw();
 }
 
 function turnLeft(){
-        yaw-=20;     
+        yaw-=30;     
         turnYaw();
 }
 
 function turnTop(){
-        pitch+=20;     
+        pitch+=30;     
         turnPitch();
 }
 
 function turnBottom(){
-        pitch-=20;     
+        pitch-=30;     
         turnPitch();
 }
 
 
 function turnYaw(){
 //move sides--------------------------------------------
-        moveFront.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw)+"deg)translateZ("+(translateZ)+"px)" ;
-        moveRight.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw+90)+"deg) translateZ("+(translateZ)+"px)" ;
-        moveLeft.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw-90)+"deg) translateZ("+(translateZ)+"px)" ;
-        moveBack.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw+180)+"deg) translateZ("+(translateZ)+"px)" ;
-        moveTop.style.transform = "rotateX( "+(pitch+90)+"deg) rotateY( 0deg) rotateZ("+(-yaw)+"deg) translateZ("+(translateZ)+"px)" ;
-        moveBottom.style.transform = "rotateX("+(pitch-90)+"deg) rotateY( 0deg) rotateZ("+(yaw)+"deg) translateZ("+(translateZ)+"px)" ;
+        moveFront.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw)+"deg)translateZ("+(translateZ-1)+"px)" ;
+        moveRight.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw+90)+"deg) translateZ("+(translateZ-1)+"px)" ;
+        moveLeft.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw-90)+"deg) translateZ("+(translateZ-1)+"px)" ;
+        moveBack.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw+180)+"deg) translateZ("+(translateZ-1)+"px)" ;
+        moveTop.style.transform = "rotateX( "+(pitch+90)+"deg) rotateY( 0deg) rotateZ("+(-yaw)+"deg) translateZ("+(translateZ-1)+"px)" ;
+        moveBottom.style.transform = "rotateX("+(pitch-90)+"deg) rotateY( 0deg) rotateZ("+(yaw)+"deg) translateZ("+(translateZ-1)+"px)" ;
 //move pieces--------------------------------------------
         frontCenter.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw)+"deg) translateZ("+(translateZ+1)+"px)" ;
         rightCenter.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw+90)+"deg) translateZ("+(translateZ+1)+"px)" ;
@@ -191,12 +191,12 @@ function turnYaw(){
 
 function turnPitch(){
 //move sides--------------------------------------------
-        moveFront.style.transform = "rotateX("+pitch+"deg) rotateY( "+(yaw)+"deg) translateZ("+(translateZ)+"px)" ;
-        moveRight.style.transform = "rotateX("+(pitch)+"deg) rotateY("+(yaw+90)+"deg) translateZ("+(translateZ)+"px)" ;
-        moveLeft.style.transform = "rotateX("+(pitch)+"deg) rotateY("+(yaw-90)+"deg) translateZ("+(translateZ)+"px)" ;
-        moveBack.style.transform = " rotateX("+(pitch)+"deg) rotateY("+(yaw+180)+"deg) translateZ("+(translateZ)+"px)" ;
-        moveTop.style.transform = "rotateX( "+(pitch+90)+"deg) rotateY( 0deg) rotateZ("+(-yaw)+"deg) translateZ("+(translateZ)+"px)" ;
-        moveBottom.style.transform = "rotateX("+(pitch-90)+"deg) rotateY( 0deg) rotateZ("+(yaw)+"deg) translateZ("+(translateZ)+"px)" ;    
+        moveFront.style.transform = "rotateX("+pitch+"deg) rotateY( "+(yaw)+"deg) translateZ("+(translateZ-1)+"px)" ;
+        moveRight.style.transform = "rotateX("+(pitch)+"deg) rotateY("+(yaw+90)+"deg) translateZ("+(translateZ-1)+"px)" ;
+        moveLeft.style.transform = "rotateX("+(pitch)+"deg) rotateY("+(yaw-90)+"deg) translateZ("+(translateZ-1)+"px)" ;
+        moveBack.style.transform = " rotateX("+(pitch)+"deg) rotateY("+(yaw+180)+"deg) translateZ("+(translateZ-1)+"px)" ;
+        moveTop.style.transform = "rotateX( "+(pitch+90)+"deg) rotateY( 0deg) rotateZ("+(-yaw)+"deg) translateZ("+(translateZ-1)+"px)" ;
+        moveBottom.style.transform = "rotateX("+(pitch-90)+"deg) rotateY( 0deg) rotateZ("+(yaw)+"deg) translateZ("+(translateZ-1)+"px)" ;    
 //move pieces--------------------------------------------
         frontCenter.style.transform = "rotateX("+pitch+"deg) rotateY( "+(yaw)+"deg) translateZ("+(translateZ+1)+"px)" ;
         rightCenter.style.transform = "rotateX("+(pitch)+"deg) rotateY("+(yaw+90)+"deg) translateZ("+(translateZ+1)+"px)" ;
