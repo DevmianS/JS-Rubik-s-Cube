@@ -46,6 +46,11 @@ body{
         top: -120px;
 
     }
+    .btn_left_side_up{
+        left: -150px;
+        top: -50px;
+
+    }
     .scene{
         position: absolute;
         top: 300px;
@@ -183,7 +188,7 @@ body{
                         justify-content: center;
                 
                 }
-                #front_center{
+                #nb5{
                     background: var(--front-color);
                     transform: rotateX(0deg) rotateY(  0deg) translateZ(150px);
                  
@@ -230,12 +235,12 @@ body{
                         color: black;
                     }
                 }
-                #top_front-front{
+                #nb2{
                     background: var(--front-color);
                     // visibility: hidden;
                     transform: rotateX(0deg) rotateY( 0deg) translateX(0px) translateY(-100px)translateZ(150px);
                 }
-                #bottom_front-front{
+                #nb8{
                     background: var(--front-color);
                     // transform: rotateY(  0deg) translateZ(100px);
                     transform: rotateX(0deg) rotateY(  0deg)  translateX(0px) translateY(100px) translateZ(150px);
@@ -255,7 +260,7 @@ body{
                     }
     
                 }
-                #left_front-front{
+                #nb4{
                     background: var(--front-color);
                     // transform: rotateY(  0deg) translateZ(100px);
                     transform: rotateX(0deg) rotateY(0deg) translateX(-100px) translateY(0px) translateZ(150px);
@@ -275,7 +280,7 @@ body{
                     }
     
                 }
-                #front_right-front{
+                #nb6{
                     background: var(--front-color);
                     // transform: rotateY(  0deg) translateZ(100px);
                     transform: rotateX(0deg) rotateY(0deg) translateX(100px) translateY(0px) translateZ(150px);
@@ -395,7 +400,7 @@ body{
                         color: black;
                     }
                 }
-                #top_right-right{
+                #nb11{
                     background: var(--right-color);
                     transform: rotateX(0deg) rotateY(  90deg) translateX(0px) translateY(-100px)  translateZ(150px);
                     // position: absolute;
@@ -429,7 +434,7 @@ body{
                     transform: rotateX(0deg) rotateY(-90deg)  translateX(100px) translateY(-100px) translateZ(150px);
 
                 }
-                #top_left_front-front{
+                #nb1{
                     background: var(--front-color);
                     transform: rotateX(0deg) rotateY(  0deg) translateX(-100px) translateY(-100px) translateZ(150px);
                     // position: absolute;
@@ -443,12 +448,12 @@ body{
                         color: black;
                     }
                 }
-                #top_front_right-front{
+                #nb3{
                     background: var(--front-color);
                     transform: rotateX(0deg) rotateY(  0deg) translateX(100px) translateY(-100px) translateZ(150px);
 
                 }
-                #top_front_right-right{
+                #nb10{
                     background: var(--right-color);
                     transform: rotateX(0deg) rotateY(90deg)  translateX(-100px) translateY(-100px) translateZ(150px);
 
@@ -460,7 +465,7 @@ body{
                         color: black;
                     }
                 }
-                #top_right_back-right{
+                #nb12{
                     background: var(--right-color);
                     transform: rotateX(0deg) rotateY(90deg)  translateX(100px) translateY(-100px) translateZ(150px);
 
@@ -501,7 +506,7 @@ body{
                     transform: rotateX(0deg) rotateY(-90deg) translateX(100px) translateY(100px)  translateZ(150px);
 
                 }
-                #bottom_left_front-front{
+                #nb7{
                     background: var(--front-color);
                     transform: rotateX(0deg) rotateY(  0deg) translateX(-100px) translateY(100px) translateZ(150px);
                  
@@ -515,7 +520,7 @@ body{
                         color: black;
                     }
                 }
-                #bottom_front_right-front{
+                #nb9{
                     background: var(--front-color);
                     transform: rotateX(0deg) rotateY(  0deg) translateX(100px) translateY(100px) translateZ(150px);
                  
