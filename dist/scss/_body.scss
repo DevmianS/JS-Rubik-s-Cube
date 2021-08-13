@@ -1,11 +1,13 @@
 body{
-    background-color: #2f2f2f;
+
     display: flex;
     justify-content: center;
     align-content: center;
     position: relative;
     overflow:hidden;
-
+	background: radial-gradient(circle, white, rgba(black, .5)) {
+		color: #2f2f2f;
+		blend-mode: overlay; }
     h2{
         margin: 0;
         padding: 0;
@@ -13,7 +15,7 @@ body{
         font-size: 30px;
         align-self: center;
         margin: auto; 
-        // visibility: hidden;
+         visibility: hidden;
     }
 //buttons
     button{
@@ -47,12 +49,16 @@ body{
         left: -150px;
         top: -50px;
     }
+    .btn_segment-top{
+        left: 350px;
+        top: -50px;
+    }
     .scene{
         position: absolute;
         top: 300px;
         width: 300px;
         height: 300px;
-        perspective: 700px;
+        perspective: 100em;
         display: flex;
         #cube{
             display: flex;
@@ -70,23 +76,24 @@ body{
                 margin: 1px;
                 width: 300px;
                 height: 300px;
-                border-radius: 5px;
+                // border-radius: 5px;
                 position: absolute;
-                border-radius: 10px;
+                // border-radius: 10px;
                 display: flex;
                 justify-content: center;
                 align-content: center;
                 vertical-align: middle;
                 cursor: pointer;
+                
             }
 
             #top{
-                background: var(--black-color);
+               // background: var(--black-color);
                 transform: rotateX( 90deg)rotateY(0deg)rotateZ(0deg) translateZ(150px);
                 transition: inherit;
             }
             #front{
-                background: var(--black-color);
+               // background: var(--black-color);
                 transform: rotateX(0deg) rotateY(  0deg) translateZ(150px);
                 transition: inherit;
                 h2{
@@ -96,12 +103,12 @@ body{
             }
             #right{
     
-                background: var(--black-color);
+                //background: var(--black-color);
                 transform: rotateX(0deg) rotateY( 90deg) translateZ(150px);
                 transition: inherit;
             }
             #back{
-                background: var(--black-color);
+               // background: var(--black-color);
                 transform: rotateX(0deg) rotateY(180deg)translateZ(150px);
                 transition: inherit;
                 h2{
@@ -109,16 +116,16 @@ body{
                 }
             }
             #left{
-                background: var(--black-color);
+               // background: var(--black-color);
                 transform: rotateX(0deg) rotateY(-90deg)translateZ(150px);
                 transition: inherit;
             }
             #bottom{
-                background: var(--black-color);
+               // background: var(--black-color);
                 transform: rotateX(-90deg) rotateY(0deg) rotateZ(0deg) translateZ(150px);
                 transition: inherit;
             }
-           
+
             // .pieces{
                 .piece,.multi_piece{
                     display: flex;
@@ -134,8 +141,41 @@ body{
                 .piece{
                     height: 33%;
                     width: 33%;
+                    background-color: var(--black-color);
+                     
+                    border: .05em solid var(--black-color);
+                    //border-radius: 25px;
+                    
+                }
+                .sticker{
+                    height: 96%;
+                    width: 96%;
                     border-radius: 15px;
-                    border: 3px solid black;
+                    display: flex;
+                    margin: auto;
+                    justify-self: center;
+                    box-shadow: inset .05em .05em .2rem 0 rgba(white, .25),
+                    inset -.05em -.05em .2rem 0 rgba(black, .25);
+                    // background-color: var(--front-color);
+                    // border: 3px solid black;
+                }
+                .front{
+                    background-color: var(--front-color);
+                }
+                .right{
+                    background-color: var(--right-color);
+                }
+                .back{
+                    background-color: var(--back-color);
+                }
+                .left{
+                    background-color: var(--left-color);
+                }
+                .top{
+                    background-color: var(--top-color);
+                }
+                .bottom{
+                    background-color: var(--bottom-color);
                 }
                 .multi_piece{
                     transform-style: preserve-3d;
@@ -144,211 +184,212 @@ body{
                         position: absolute;
                         color: rgb(27, 27, 27);
                         font-size: xx-large;
-                        transform: translateZ(5px);
+                        // transform: translateZ(5px);
                         justify-content: center;
                 
                 }
                 #nb1,#nb2,#nb3,#nb4,#nb5,#nb6,#nb7,#nb8,#nb9{
-                    background: var(--front-color);
+                    // background: var(--black-color);
                     h2{
                         color: white;
                     }
                 }
                 #nb1{
-                    transform: rotateX(0deg) rotateY(  0deg) translateX(-100px) translateY(-100px) translateZ(150px);
+                   // transform: $faces
+                    transform: var(--front) translateX(-100px) translateY(-100px) translateZ(150px);
                 }
                 #nb2{
-                    transform: rotateX(0deg) rotateY( 0deg) translateX(0px) translateY(-100px)translateZ(150px);
+                    transform: var(--front) translateX(0px) translateY(-100px)translateZ(150px);
                 }
                 #nb3{
-                    transform: rotateX(0deg) rotateY(  0deg) translateX(100px) translateY(-100px) translateZ(150px);
+                    transform: var(--front) translateX(100px) translateY(-100px) translateZ(150px);
                 }
                 #nb4{
-                    transform: rotateX(0deg) rotateY(0deg) translateX(-100px) translateY(0px) translateZ(150px);
+                    transform: var(--front) translateX(-100px) translateY(0px) translateZ(150px);
                 }
                 #nb5{
-                    transform: rotateX(0deg) rotateY(  0deg) translateZ(150px);
+                    transform: var(--front) translateZ(150px);
                 }
                 #nb6{
-                    transform: rotateX(0deg) rotateY(0deg) translateX(100px) translateY(0px) translateZ(150px);
+                    transform: var(--front) translateX(100px) translateY(0px) translateZ(150px);
                 }
                 #nb7{
-                    transform: rotateX(0deg) rotateY(  0deg) translateX(-100px) translateY(100px) translateZ(150px);
+                    transform: var(--front) translateX(-100px) translateY(100px) translateZ(150px);
                 }
                 #nb8{
-                    transform: rotateX(0deg) rotateY(  0deg)  translateX(0px) translateY(100px) translateZ(150px);
+                    transform: var(--front)  translateX(0px) translateY(100px) translateZ(150px);
                 }
                 #nb9{
-                    transform: rotateX(0deg) rotateY(  0deg) translateX(100px) translateY(100px) translateZ(150px);
+                    transform: var(--front) translateX(100px) translateY(100px) translateZ(150px);
                 }
 
                 #nb10,#nb11,#nb12,#nb13,#nb14,#nb15,#nb16,#nb17,#nb18{
-                    background: var(--right-color);
+                   // background: var(--right-color);
                     h2{
                         color: white;
                     }
                 }
                 #nb10{
-                    transform: rotateX(0deg) rotateY(90deg)  translateX(-100px) translateY(-100px) translateZ(150px);
+                    transform: var(--right)  translateX(-100px) translateY(-100px) translateZ(150px);
                 }
                 #nb11{
-                    transform: rotateX(0deg) rotateY(  90deg) translateX(0px) translateY(-100px)  translateZ(150px);
+                    transform: var(--right)  translateX(0px) translateY(-100px)  translateZ(150px);
                 }
                 #nb12{
-                    transform: rotateX(0deg) rotateY(90deg)  translateX(100px) translateY(-100px) translateZ(150px);
+                    transform: var(--right)   translateX(100px) translateY(-100px) translateZ(150px);
                 }
                 #nb13{
-                    transform: rotateX(0deg) rotateY(90deg) translateX(-100px) translateY(0px) translateZ(150px);
+                    transform: var(--right)  translateX(-100px) translateY(0px) translateZ(150px);
                 }
                 #nb14{
-                    transform: rotateX(0deg) rotateY(  90deg) translateZ(150px);
+                    transform: var(--right)  translateZ(150px);
                 }
                 #nb15{
-                    transform: rotateX(0deg) rotateY(90deg) translateX(100px) translateY(0px) translateZ(150px);
+                    transform: var(--right)  translateX(100px) translateY(0px) translateZ(150px);
                 }
                 #nb16{
-                    transform: rotateX(0deg) rotateY(90deg) translateX(-100px) translateY(100px)  translateZ(150px);
+                    transform: var(--right)  translateX(-100px) translateY(100px)  translateZ(150px);
                 }
                 #nb17{
-                    transform: rotateX(0deg) rotateY(  90deg) translateX(0px) translateY(100px)  translateZ(150px);
+                    transform: var(--right)  translateX(0px) translateY(100px)  translateZ(150px);
                 }
                 #nb18{
-                    transform: rotateX(0deg) rotateY(90deg) translateX(100px) translateY(100px)  translateZ(150px);
+                    transform: var(--right)  translateX(100px) translateY(100px)  translateZ(150px);
                 }
                 #nb19,#nb20,#nb21,#nb22,#nb23,#nb24,#nb25,#nb26,#nb27{
-                    background: var(--back-color);
+                   // background: var(--back-color);
                     h2{
                         color: white;
                     }
                 }
                 #nb19{
-                    transform: rotateX(0deg) rotateY(  180deg) translateX(-100px) translateY(-100px) translateZ(150px);
+                    transform: var(--back)  translateX(-100px) translateY(-100px) translateZ(150px);
                 }
                 #nb20{
-                    transform: rotateX(0deg) rotateY( 180deg) translateX(0px) translateY(-100px)translateZ(150px);
+                    transform: var(--back) translateX(0px) translateY(-100px)translateZ(150px);
                 }
                 #nb21{
-                    transform: rotateX(0deg) rotateY(  180deg) translateX(100px) translateY(-100px) translateZ(150px);
+                    transform: var(--back) translateX(100px) translateY(-100px) translateZ(150px);
                 }
                 #nb22{
-                    transform: rotateX(0deg) rotateY(180deg) translateX(-100px) translateY(0px) translateZ(150px);
+                    transform: var(--back) translateX(-100px) translateY(0px) translateZ(150px);
                 }
                 #nb23{
-                    transform: rotateX(0deg) rotateY(180deg)translateZ(150px);
+                    transform: var(--back)translateZ(150px);
                 }
                 #nb24{
-                    transform: rotateX(0deg) rotateY(180deg) translateX(100px) translateY(0px) translateZ(150px);
+                    transform: var(--back) translateX(100px) translateY(0px) translateZ(150px);
                 }
                 #nb25{
-                    transform: rotateX(0deg) rotateY(180deg) translateX(-100px) translateY(100px) translateZ(150px);
+                    transform: var(--back) translateX(-100px) translateY(100px) translateZ(150px);
                 }
                 #nb26{
-                    transform: rotateX(0deg) rotateY(180deg)  translateX(0px) translateY(100px) translateZ(150px);
+                    transform: var(--back)  translateX(0px) translateY(100px) translateZ(150px);
                 }
                 #nb27{
-                    transform: rotateX(0deg) rotateY( 180deg) translateX(100px) translateY(100px) translateZ(150px);
+                    transform: var(--back) translateX(100px) translateY(100px) translateZ(150px);
                 }
                 #nb28,#nb29,#nb30,#nb31,#nb32,#nb33,#nb34,#nb35,#nb36{
-                    background: var(--left-color);
+                   // background: var(--left-color);
                     h2{
                         color: white;
                     }
                 }
 
                 #nb28{
-                    transform: rotateX(0deg) rotateY(-90deg)  translateX(-100px) translateY(-100px) translateZ(150px);
+                    transform: var(--left) translateX(-100px) translateY(-100px) translateZ(150px);
                 }
                 #nb29{
-                    transform: rotateX(0deg) rotateY(-90deg) translateX(0px) translateY(-100px) translateZ(150px);
+                    transform: var(--left) translateX(0px) translateY(-100px) translateZ(150px);
                 }
                 #nb30{
-                    transform: rotateX(0deg) rotateY(-90deg)  translateX(100px) translateY(-100px) translateZ(150px);
+                    transform: var(--left)  translateX(100px) translateY(-100px) translateZ(150px);
                 }
                 #nb31{
-                    transform: rotateX(0deg) rotateY(-90deg) translateX(-100px) translateY(0px) translateZ(150px);
+                    transform: var(--left) translateX(-100px) translateY(0px) translateZ(150px);
                 }
                 #nb32{
-                    transform: rotateX(0deg) rotateY(-90deg)translateZ(150px);
+                    transform: var(--left) translateZ(150px);
                 }
                 #nb33{
-                    transform: rotateX(0deg) rotateY(-90deg) translateX(100px) translateY(0px) translateZ(150px);
+                    transform: var(--left) translateX(100px) translateY(0px) translateZ(150px);
                 }
                 #nb34{
-                    transform: rotateX(0deg) rotateY(-90deg) translateX(-100px) translateY(100px)  translateZ(150px);
+                    transform: var(--left) translateX(-100px) translateY(100px)  translateZ(150px);
                 }
                 #nb35{
-                    transform: rotateX(0deg) rotateY(-90deg) translateX(0px) translateY(100px) translateZ(150px);
+                    transform: var(--left) translateX(0px) translateY(100px) translateZ(150px);
                 }
                 #nb36{
-                    transform: rotateX(0deg) rotateY(-90deg) translateX(100px) translateY(100px)  translateZ(150px);
+                    transform: var(--left) translateX(100px) translateY(100px)  translateZ(150px);
                 }
                 #nb37,#nb38,#nb39,#nb40,#nb41,#nb42,#nb43,#nb44,#nb45{
-                    background: var(--top-color);
+                   // background: var(--top-color);
                     h2{
                         color: black;
                     }
                 }
                 #nb37{
-                    transform: rotateX( 90deg) rotateY(0deg) rotateZ(0deg)  translateX(-100px) translateY(-100px) translateZ(150px);
+                    transform: var(--top) translateX(-100px) translateY(-100px) translateZ(150px);
                 }
                 #nb38{
-                    transform: rotateX(90deg) rotateY(0deg)rotateZ(0deg)  translateX(0px) translateY(-100px)translateZ(150px);
+                    transform: var(--top) translateX(0px) translateY(-100px)translateZ(150px);
                 }
                 #nb39{
-                    transform: rotateX( 90deg) rotateY(0deg) rotateZ(0deg)  translateX(100px) translateY(-100px) translateZ(150px);
+                    transform: var(--top) translateX(100px) translateY(-100px) translateZ(150px);
                 }
                 #nb40{
-                    transform: rotateX(90deg) rotateY( 0deg) rotateZ(0deg)  translateX(-100px) translateY(0px)translateZ(150px);
+                    transform: var(--top) translateX(-100px) translateY(0px)translateZ(150px);
                 }
                 #nb41{
-                    transform: rotateX( 90deg)rotateY(0deg)rotateZ(0deg)translateZ(150px);
+                    transform: var(--top) translateZ(150px);
                 }
                 #nb42{
-                    transform: rotateX( 90deg)rotateY(0deg)rotateZ(0deg)  translateX(100px) translateY(0px) translateZ(150px);
+                    transform: var(--top) translateX(100px) translateY(0px) translateZ(150px);
                 }
                 #nb43{
-                    transform: rotateX( 90deg) rotateY(0deg) rotateZ(0deg) translateX(-100px) translateY(100px) translateZ(150px);
+                    transform: var(--top) translateX(-100px) translateY(100px) translateZ(150px);
                 }
                 #nb44{
-                    transform: rotateX(90deg) rotateY( 0deg)rotateZ(0deg) translateX(0px) translateY(100px)translateZ(150px);
+                    transform: var(--top) translateX(0px) translateY(100px)translateZ(150px);
                 }
                 #nb45{
-                    transform: rotateX( 90deg) rotateY(0deg) rotateZ(0deg) translateX(100px) translateY(100px) translateZ(150px);
+                    transform: var(--top) translateX(100px) translateY(100px) translateZ(150px);
                 }
                 
 
                 #nb46,#nb47,#nb48,#nb49,#nb50,#nb51,#nb52,#nb53,#nb54{
-                    background: var(--bottom-color);
+                   // background: var(--bottom-color);
                     h2{
                         color: black;
                     }
                 }
                 #nb46{
-                    transform: rotateX(-90deg) rotateY(0deg) rotateZ(0deg) translateX(-100px) translateY(-100px) translateZ(150px);
+                    transform: var(--bottom) translateX(-100px) translateY(-100px) translateZ(150px);
                 }
                 #nb47{
-                    transform: rotateX(-90deg) rotateY(  0deg) rotateZ(0deg) translateX(0px) translateY(-100px) translateZ(150px);
+                    transform: var(--bottom) translateX(0px) translateY(-100px) translateZ(150px);
                 }
                 #nb48{
-                    transform: rotateX(-90deg) rotateY(0deg) rotateZ(0deg) translateX(100px) translateY(-100px) translateZ(150px);
+                    transform: var(--bottom) translateX(100px) translateY(-100px) translateZ(150px);
                 }
                 #nb49{
-                    transform: rotateX(-90deg) rotateY( 0deg)rotateZ(0deg)  translateX(-100px) translateY(0px) translateZ(150px);
+                    transform: var(--bottom)  translateX(-100px) translateY(0px) translateZ(150px);
                 }
                 #nb50{
-                    transform: rotateX(-90deg) rotateY(0deg)rotateZ(0deg)  translateZ(150px);
+                    transform: var(--bottom) translateZ(150px);
                 }
                 #nb51{
-                    transform: rotateX(-90deg) rotateY(0deg) rotateZ(0deg) translateX(100px) translateY(0px)  translateZ(150px);
+                    transform: var(--bottom) translateX(100px) translateY(0px)  translateZ(150px);
                 }
                 #nb52{
-                    transform: rotateX(-90deg) rotateY(0deg) rotateZ(0deg) translateX(-100px) translateY(100px) translateZ(150px);
+                    transform: var(--bottom) translateX(-100px) translateY(100px) translateZ(150px);
                 }
                 #nb53{
-                    transform: rotateX(-90deg) rotateY(  0deg) rotateZ(0deg)  translateX(0px) translateY(100px) translateZ(150px);
+                    transform: var(--bottom) translateX(0px) translateY(100px) translateZ(150px);
                 }
                 #nb54{
-                    transform: rotateX(-90deg) rotateY(0deg) rotateZ(0deg) translateX(100px) translateY(100px) translateZ(150px);
+                    transform: var(--bottom) translateX(100px) translateY(100px) translateZ(150px);
                 }
         }
     }
