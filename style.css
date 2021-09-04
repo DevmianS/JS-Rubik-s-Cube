@@ -1,5 +1,5 @@
 :root {
-  --alpha: 0.5;
+  --alpha: 1;
   --front-color: rgba(33, 33, 240,var(--alpha));
   --top-color:  rgba(255, 255, 255, var(--alpha));
   --bottom-color:  rgba(224, 174, 0, var(--alpha));
@@ -552,4 +552,3 @@ body .scene #cube #nb54 {
   -webkit-transform: var(--bottom) translateX(100px) translateY(100px) translateZ(150px);
           transform: var(--bottom) translateX(100px) translateY(100px) translateZ(150px);
 }
-/*# sourceMappingURL=style.css.map */
