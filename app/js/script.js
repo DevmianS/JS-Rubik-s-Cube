@@ -11,272 +11,250 @@ var btnRight = document.querySelector('.btn_right');
 var btnLeft = document.querySelector('.btn_left');
 var btnBottom = document.querySelector('.btn_bottom');
 var btnTop = document.querySelector('.btn_top');
+var btnReset = document.querySelector('.btn_reset');
+var btnSegTop = document.querySelector('.btn_segment-top');
 
+//alert(sideAngles[1])
+//var FRONTA = document.documentElement.style.setProperty('--front', 'rotateX(0deg) rotateY('+yaw+'deg) translateX(-100px) translateY(-100px)');
+// var frontAngle = getComputedStyle(document.documentElement).getPropertyValue('--front');
+// var rightAngle = getComputedStyle(document.documentElement).getPropertyValue('--right');
+// var backAngle = getComputedStyle(document.documentElement).getPropertyValue('--back');
+// var leftAngle = getComputedStyle(document.documentElement).getPropertyValue('--left');
+// var topAngle = getComputedStyle(document.documentElement).getPropertyValue('--top');
+// var bottomAngle = getComputedStyle(document.documentElement).getPropertyValue('--bottom');
 //pieces--------------------------------------------
-var frontCenter = document.getElementById('front_center');
-var rightCenter = document.getElementById('right_center');
-var backCenter = document.getElementById('back_center');
-var leftCenter = document.getElementById('left_center');
-var topCenter = document.getElementById('top_center');
-var bottomCenter = document.getElementById('bottom_center');
-var topFrontFront = document.getElementById('top_front-front');
-var topFrontTop = document.getElementById('top_front-top');
-var bottomFrontFront = document.getElementById('bottom_front-front');
-var bottomFrontBottom = document.getElementById('bottom_front-bottom');
-var leftFrontLeft = document.getElementById('left_front-left');
-var leftFrontFront = document.getElementById('left_front-front');
-var frontRightFront = document.getElementById('front_right-front');
-var frontRightRight = document.getElementById('front_right-right');
-var rightBackRight = document.getElementById('right_back-right');
-var rightBackBack = document.getElementById('right_back-back');
-var backLeftBack = document.getElementById('back_left-back');
-var backLeftLeft = document.getElementById('back_left-left');
-var topBackTop = document.getElementById('top_back-top');
-var topBackBack = document.getElementById('top_back-back');
-var bottomBackBottom = document.getElementById('bottom_back-bottom');
-var bottomBackBack = document.getElementById('bottom_back-back');
-var topLeftTop = document.getElementById('top_left-top');
-var topLeftLeft = document.getElementById('top_left-left');
-var bottomLeftBottom = document.getElementById('bottom_left-bottom');
-var bottomLeftLeft = document.getElementById('bottom_left-left');
-var topRightTop = document.getElementById('top_right-top');
-var topRightRight = document.getElementById('top_right-right');
-var bottomRightBottom = document.getElementById('bottom_right-bottom');
-var bottomRightRight = document.getElementById('bottom_right-right');
-var bottomRightRight = document.getElementById('bottom_right-right');
-var topLeftFrontTop = document.getElementById('top_left_front-top');
-var topLeftFrontLeft = document.getElementById('top_left_front-left');
-var topLeftFrontFront = document.getElementById('top_left_front-front');
-var topFrontRightTop = document.getElementById('top_front_right-top');
-var topFrontRightFront = document.getElementById('top_front_right-front');
-var topFrontRightRight = document.getElementById('top_front_right-right');
-var topRightBackTop = document.getElementById('top_right_back-top');
-var topRightBackRight = document.getElementById('top_right_back-right');
-var topRightBackBack = document.getElementById('top_right_back-back');
-var topBackLeftTop = document.getElementById('top_back_left-top');
-var topBackLeftBack = document.getElementById('top_back_left-back');
-var topBackLeftLeft = document.getElementById('top_back_left-left');
-var bottomLeftFrontBottom = document.getElementById('bottom_left_front-bottom');
-var bottomLeftFrontLeft = document.getElementById('bottom_left_front-left');
-var bottomLeftFrontFront = document.getElementById('bottom_left_front-front');
-var bottomFrontRightBottom = document.getElementById('bottom_front_right-bottom');
-var bottomFrontRightFront = document.getElementById('bottom_front_right-front');
-var bottomFrontRightRight = document.getElementById('bottom_front_right-right');
-var bottomRightBackBottom = document.getElementById('bottom_right_back-bottom');
-var bottomRightBackRight = document.getElementById('bottom_right_back-right');
-var bottomRightBackBack = document.getElementById('bottom_right_back-back');
-var bottomBackLeftBottom = document.getElementById('bottom_back_left-bottom');
-var bottomBackLeftBack = document.getElementById('bottom_back_left-back');
-var bottomBackLeftLeft = document.getElementById('bottom_back_left-left');
 
-
-
-
+var piecesArr = [0,];
+var piecesPosition = [0,];
+//piecesArr[0] = 0;
+// var pBackup = [...piecesArr];
+for(i=1; i<=54;i++){
+        piecesArr[i] = document.getElementById('nb'+(i));
+        piecesPosition[i] = i;
+        console.log(piecesArr[i]);
+}
 
 //variables----------------------------------------
 
-var roll = 0;
-var pitch = 0;
-var yaw = 0;
+var pitch = -45;
+var yaw = -45;
+
 var translateZ = 150;
+var direction = "";
+var spacing = 0;
+var innerSpacing = 0;
+//css sides variables-------------------------------
+var tilePosition = [0,
+        "translateX(-100px) translateY(-100px)",//        ^
+        "translateX(0px) translateY(-100px)",   //        |-100y
+        "translateX(100px) translateY(-100px)", //        |
+        "translateX(-100px) translateY(0px)",   //-100x___|0_____100x>
+        "translateX(0px) translateY(0px)",      //        |
+        "translateX(100px) translateY(0px)",    //        |-100y            
+        "translateX(-100px) translateY(100px)",
+        "translateX(0px) translateY(100px)",
+        "translateX(100px) translateY(100px)"]; 
+var whichSide = 0;        
 
 
-function turnRight(){
-        yaw+=30;     
-        // if (yaw==360)yaw=0;
-        turnYaw();
+var rotateFaceX = "rotateX( "+(pitch)+"deg)";
+var rotateFaceY = "rotateY("+(yaw)+"deg)";
+var rotateFaceXTop = "rotateX( "+(pitch+90)+"deg)";
+var rotateFaceXBottom = "rotateX( "+(pitch-90)+"deg)";
+var rotateFaceYRight = "rotateY("+(yaw+90)+"deg)";
+var rotateFaceYBack = "rotateY("+(yaw+180)+"deg)";
+var rotateFaceYLeft = "rotateY("+(yaw+270)+"deg)";
+var rotateFaceZTop = "rotateZ("+(-yaw)+"deg)";
+var rotateFaceZBottom = "rotateZ("+(+yaw)+"deg)";
+
+//var rotateFaceFront = rotateFaceX + rotateFaceY;
+//alert("assigned "+rotateFaceX);
+//var rotateFaceX90 = "rotateX( "+(pitch+90)+"deg)";
+
+//var rotateFaceY90 = "rotateY("+(yaw+90)+"deg)";
+var rotateFaceZ = "rotateZ(0deg)";
+var pPopup = "translateZ("+(translateZ+spacing)+"px)";
+
+var sideAngles = [0,document.documentElement.style.setProperty('--front',rotateFaceX + rotateFaceY),
+document.documentElement.style.setProperty('--right',rotateFaceX + rotateFaceYRight),//WIP
+document.documentElement.style.setProperty('--back',rotateFaceX + rotateFaceYBack),
+document.documentElement.style.setProperty('--left',rotateFaceX + rotateFaceYLeft),
+document.documentElement.style.setProperty('--top',rotateFaceXTop + "rotateY(0deg)" + rotateFaceZTop),
+document.documentElement.style.setProperty('--bottom',rotateFaceXBottom + "rotateY(0deg)" + rotateFaceZBottom)]
+
+//getComputedStyle(document.documentElement).getPropertyValue('--top')
+
+
+function cubeMovement(direction){
+ 
+        if(direction=="right"){
+                yaw+=90;     
+                turnCube(direction);
+        }
+        else if(direction=="left"){
+                yaw-=90;     
+                turnCube(direction);
+        }
+        else if(direction=="bottom"){
+               // alert("move bottom "+rotateFaceX);
+                pitch-=90;     
+               // alert("move bottom "+rotateFaceX);
+                turnCube(direction);
+        }
+        else if(direction=="top"){
+                pitch+=90;     
+                turnCube(direction);
+        }
+        else if(direction=="movetops"){ 
+                turnCube(direction);
+        }
+        else alert("Wrong direction name! Only 'right, left, bottom, top' are allowed!");
+
 }
 
-function turnLeft(){
-        yaw-=30;     
-        turnYaw();
-}
-
-function turnTop(){
-        pitch+=30;     
-        turnPitch();
-}
-
-function turnBottom(){
-        pitch-=30;     
-        turnPitch();
-}
-
-
-function turnYaw(){
-//move sides--------------------------------------------
-        moveFront.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw)+"deg)translateZ("+(translateZ-1)+"px)" ;
-        moveRight.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw+90)+"deg) translateZ("+(translateZ-1)+"px)" ;
-        moveLeft.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw-90)+"deg) translateZ("+(translateZ-1)+"px)" ;
-        moveBack.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw+180)+"deg) translateZ("+(translateZ-1)+"px)" ;
-        moveTop.style.transform = "rotateX( "+(pitch+90)+"deg) rotateY( 0deg) rotateZ("+(-yaw)+"deg) translateZ("+(translateZ-1)+"px)" ;
-        moveBottom.style.transform = "rotateX("+(pitch-90)+"deg) rotateY( 0deg) rotateZ("+(yaw)+"deg) translateZ("+(translateZ-1)+"px)" ;
-//move pieces--------------------------------------------
-        frontCenter.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw)+"deg) translateZ("+(translateZ+1)+"px)" ;
-        rightCenter.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw+90)+"deg) translateZ("+(translateZ+1)+"px)" ;
-        backCenter.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw+180)+"deg) translateZ("+(translateZ+1)+"px)" ;
-        leftCenter.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw-90)+"deg) translateZ("+(translateZ+1)+"px)" ;
-        topCenter.style.transform = "rotateX( "+(pitch+90)+"deg) rotateY( 0deg) rotateZ("+(-yaw)+"deg) translateZ("+(translateZ+1)+"px)" ;
-        bottomCenter.style.transform = "rotateX("+(pitch-90)+"deg) rotateY( 0deg) rotateZ("+(yaw)+"deg) translateZ("+(translateZ+1)+"px)" ;
-       
-        topFrontFront.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw)+"deg) translateX(0px) translateY(-100px) translateZ("+(translateZ+1)+"px)" ;
-        topFrontTop.style.transform = "rotateX( "+(pitch+90)+"deg) rotateY( 0deg) rotateZ("+(-yaw)+"deg) translateX(0px) translateY(100px) translateZ("+(translateZ+1)+"px)" ;
-       
-        bottomFrontFront.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw)+"deg) translateX(0px) translateY(100px) translateZ("+(translateZ+1)+"px)" ;
-        bottomFrontBottom.style.transform = "rotateX("+(pitch-90)+"deg) rotateY( 0deg) rotateZ("+(yaw)+"deg) translateX(0px) translateY(-100px) translateZ("+(translateZ+1)+"px)" ;
-       
-        leftFrontLeft.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw-90)+"deg) translateX(100px) translateY(0px) translateZ("+(translateZ+1)+"px)" ;
-        leftFrontFront.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw)+"deg) translateX(-100px) translateY(0px) translateZ("+(translateZ+1)+"px)" ;
-       
-        frontRightFront.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw)+"deg) translateX(100px) translateY(0px) translateZ("+(translateZ+1)+"px)" ;
-        frontRightRight.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw+90)+"deg) translateX(-100px) translateY(0px) translateZ("+(translateZ+1)+"px)" ;
-       
-        rightBackRight.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw+90)+"deg) translateX(100px) translateY(0px) translateZ("+(translateZ+1)+"px)" ;
-        rightBackBack.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw+180)+"deg) translateX(-100px) translateY(0px) translateZ("+(translateZ+1)+"px)" ;
-       
-        backLeftBack.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw+180)+"deg) translateX(100px) translateY(0px) translateZ("+(translateZ+1)+"px)" ;
-        backLeftLeft.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw-90)+"deg)  translateX(-100px) translateY(0px) translateZ("+(translateZ+1)+"px)" ;
-       
-        topBackTop.style.transform = "rotateX( "+(pitch+90)+"deg) rotateY( 0deg) rotateZ("+(-yaw)+"deg) translateX(0px) translateY(-100px) translateZ("+(translateZ+1)+"px)" ;
-        topBackBack.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw+180)+"deg) translateX(0px) translateY(-100px) translateZ("+(translateZ+1)+"px)" ;
-       
-        bottomBackBottom.style.transform = "rotateX("+(pitch-90)+"deg) rotateY( 0deg) rotateZ("+(yaw)+"deg)  translateX(0px) translateY(100px) translateZ("+(translateZ+1)+"px)" ;
-        bottomBackBack.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw+180)+"deg) translateX(0px) translateY(100px) translateZ("+(translateZ)+"px)" ; 
-       
-        topLeftTop.style.transform = "rotateX( "+(pitch+90)+"deg) rotateY( 0deg) rotateZ("+(-yaw)+"deg) translateX(-100px) translateY(0px) translateZ("+(translateZ+1)+"px)" ;
-        topLeftLeft.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw-90)+"deg) translateX(0px) translateY(-100px) translateZ("+(translateZ+1)+"px)" ;
-       
-        bottomLeftBottom.style.transform = "rotateX("+(pitch-90)+"deg) rotateY( 0deg) rotateZ("+(yaw)+"deg)  translateX(-100px) translateY(0px) translateZ("+(translateZ+1)+"px)" ;
-        bottomLeftLeft.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw-90)+"deg) translateX(0px) translateY(100px) translateZ("+(translateZ+1)+"px)" ;
-       
-        topRightTop.style.transform = "rotateX( "+(pitch+90)+"deg) rotateY( 0deg) rotateZ("+(-yaw)+"deg)  translateX(100px) translateY(0px) translateZ("+(translateZ+1)+"px)" ;
-        topRightRight.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw+90)+"deg) translateX(0px) translateY(-100px) translateZ("+(translateZ+1)+"px)" ;
-       
-        bottomRightBottom.style.transform = "rotateX("+(pitch-90)+"deg) rotateY( 0deg) rotateZ("+(yaw)+"deg) translateX(100px) translateY(0px) translateZ("+(translateZ+1)+"px)" ;
-        bottomRightRight.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw+90)+"deg) translateX(0px) translateY(100px) translateZ("+(translateZ+1)+"px)" ;
-      
-        topLeftFrontTop.style.transform = "rotateX( "+(pitch+90)+"deg) rotateY( 0deg) rotateZ("+(-yaw)+"deg) translateX(-100px) translateY(100px) translateZ("+(translateZ+1)+"px)" ;
-        topLeftFrontLeft.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw-90)+"deg) translateX(100px) translateY(-100px)  translateZ("+(translateZ+1)+"px)" ;
-        topLeftFrontFront.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw)+"deg) translateX(-100px) translateY(-100px) translateZ("+(translateZ+1)+"px)" ;  
-       
-        topFrontRightTop.style.transform = "rotateX( "+(pitch+90)+"deg) rotateY( 0deg) rotateZ("+(-yaw)+"deg) translateX(100px) translateY(100px)  translateZ("+(translateZ+1)+"px)" ;
-        topFrontRightFront.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw)+"deg)  translateX(100px) translateY(-100px) translateZ("+(translateZ+1)+"px)" ;
-        topFrontRightRight.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw+90)+"deg) translateX(-100px) translateY(-100px)  translateZ("+(translateZ+1)+"px)" ;
-       
-        topRightBackTop.style.transform = "rotateX( "+(pitch+90)+"deg) rotateY( 0deg) rotateZ("+(-yaw)+"deg) translateX(100px) translateY(-100px) translateZ("+(translateZ+1)+"px)" ;
-        topRightBackRight.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw+90)+"deg) translateX(100px) translateY(-100px)  translateZ("+(translateZ+1)+"px)" ;
-        topRightBackBack.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw+180)+"deg) translateX(-100px) translateY(-100px) translateZ("+(translateZ+1)+"px)" ;  
-       
-        topBackLeftTop.style.transform = "rotateX( "+(pitch+90)+"deg) rotateY( 0deg) rotateZ("+(-yaw)+"deg) translateX(-100px) translateY(-100px)  translateZ("+(translateZ+1)+"px)" ;
-        topBackLeftBack.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw+180)+"deg)  translateX(100px) translateY(-100px) translateZ("+(translateZ+1)+"px)" ;
-        topBackLeftLeft.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw-90)+"deg) translateX(-100px) translateY(-100px)  translateZ("+(translateZ+1)+"px)" ;
-       
-        bottomLeftFrontBottom.style.transform = "rotateX("+(pitch-90)+"deg) rotateY( 0deg) rotateZ("+(yaw)+"deg) translateX(-100px) translateY(-100px)  translateZ("+(translateZ+1)+"px)" ;
-        bottomLeftFrontLeft.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw-90)+"deg) translateX(100px) translateY(100px) translateZ("+(translateZ+1)+"px)" ;
-        bottomLeftFrontFront.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw)+"deg) translateX(-100px) translateY(100px) translateZ("+(translateZ)+"px)" ;
-
-        bottomFrontRightBottom.style.transform = "rotateX("+(pitch-90)+"deg) rotateY( 0deg) rotateZ("+(yaw)+"deg) translateX(100px) translateY(-100px) translateZ("+(translateZ)+"px)" ;
-        bottomFrontRightFront.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw)+"deg) translateX(100px) translateY(100px)translateZ("+(translateZ)+"px)" ;
-        bottomFrontRightRight.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw+90)+"deg) translateX(-100px) translateY(100px) translateZ("+(translateZ)+"px)" ;
-   
-        bottomRightBackBottom.style.transform = "rotateX("+(pitch-90)+"deg) rotateY( 0deg) rotateZ("+(yaw)+"deg) translateX(100px) translateY(100px)  translateZ("+(translateZ+1)+"px)" ;
-        bottomRightBackRight.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw+90)+"deg) translateX(100px) translateY(100px) translateZ("+(translateZ+1)+"px)" ;
-        bottomRightBackBack.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw+180)+"deg) translateX(-100px) translateY(100px) translateZ("+(translateZ+1)+"px)" ;
-
-        bottomBackLeftBottom.style.transform = "rotateX("+(pitch-90)+"deg) rotateY( 0deg) rotateZ("+(yaw)+"deg)  translateX(-100px) translateY(100px)  translateZ("+(translateZ+1)+"px)" ;
-        bottomBackLeftBack.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw+180)+"deg) translateX(100px) translateY(100px) translateZ("+(translateZ+1)+"px)" ;
-        bottomBackLeftLeft.style.transform = "rotateX( "+pitch+"deg) rotateY("+(yaw-90)+"deg) translateX(-100px) translateY(100px) translateZ("+(translateZ+1)+"px)" ;
+function resetPosition(){
+        yaw=0;
+        pich=0;
+        //WIP
 }
 
 
-function turnPitch(){
-//move sides--------------------------------------------
-        moveFront.style.transform = "rotateX("+pitch+"deg) rotateY( "+(yaw)+"deg) translateZ("+(translateZ-1)+"px)" ;
-        moveRight.style.transform = "rotateX("+(pitch)+"deg) rotateY("+(yaw+90)+"deg) translateZ("+(translateZ-1)+"px)" ;
-        moveLeft.style.transform = "rotateX("+(pitch)+"deg) rotateY("+(yaw-90)+"deg) translateZ("+(translateZ-1)+"px)" ;
-        moveBack.style.transform = " rotateX("+(pitch)+"deg) rotateY("+(yaw+180)+"deg) translateZ("+(translateZ-1)+"px)" ;
-        moveTop.style.transform = "rotateX( "+(pitch+90)+"deg) rotateY( 0deg) rotateZ("+(-yaw)+"deg) translateZ("+(translateZ-1)+"px)" ;
-        moveBottom.style.transform = "rotateX("+(pitch-90)+"deg) rotateY( 0deg) rotateZ("+(yaw)+"deg) translateZ("+(translateZ-1)+"px)" ;    
-//move pieces--------------------------------------------
-        frontCenter.style.transform = "rotateX("+pitch+"deg) rotateY( "+(yaw)+"deg) translateZ("+(translateZ+1)+"px)" ;
-        rightCenter.style.transform = "rotateX("+(pitch)+"deg) rotateY("+(yaw+90)+"deg) translateZ("+(translateZ+1)+"px)" ;
-        backCenter.style.transform = " rotateX("+(pitch)+"deg) rotateY("+(yaw+180)+"deg) translateZ("+(translateZ+1)+"px)" ;
-        leftCenter.style.transform = "rotateX("+(pitch)+"deg) rotateY("+(yaw-90)+"deg) translateZ("+(translateZ+1)+"px)" ;
-        topCenter.style.transform = "rotateX( "+(pitch+90)+"deg) rotateY( 0deg) rotateZ("+(-yaw)+"deg) translateZ("+(translateZ+1)+"px)" ;
-        bottomCenter.style.transform = "rotateX("+(pitch-90)+"deg) rotateY( 0deg) rotateZ("+(yaw)+"deg) translateZ("+(translateZ+1)+"px)" ;
-       
-        topFrontFront.style.transform = "rotateX("+pitch+"deg) rotateY( "+(yaw)+"deg) translateX(0px) translateY(-100px) translateZ("+(translateZ+1)+"px)";
-        topFrontTop.style.transform = "rotateX( "+(pitch+90)+"deg) rotateY( 0deg) rotateZ("+(-yaw)+"deg) translateX(0px) translateY(100px) translateZ("+(translateZ+1)+"px)" ;
-       
-        bottomFrontFront.style.transform = "rotateX("+pitch+"deg) rotateY( "+(yaw)+"deg) translateX(0px) translateY(100px) translateZ("+(translateZ+1)+"px)" ;
-        bottomFrontBottom.style.transform = "rotateX("+(pitch-90)+"deg) rotateY( 0deg) rotateZ("+(yaw)+"deg) translateX(0px) translateY(-100px) translateZ("+(translateZ+1)+"px)" ;
-       
-        leftFrontLeft.style.transform = "rotateX("+(pitch)+"deg) rotateY("+(yaw-90)+"deg) translateX(100px) translateY(0px) translateZ("+(translateZ+1)+"px)" ;
-        leftFrontFront.style.transform = "rotateX("+pitch+"deg) rotateY( "+(yaw)+"deg) translateX(-100px) translateY(0px) translateZ("+(translateZ+1)+"px)" ;
-       
-        frontRightFront.style.transform = "rotateX("+pitch+"deg) rotateY( "+(yaw)+"deg) translateX(100px) translateY(0px) translateZ("+(translateZ+1)+"px)" ;
-        frontRightRight.style.transform = "rotateX("+(pitch)+"deg) rotateY("+(yaw+90)+"deg) translateX(-100px) translateY(0px) translateZ("+(translateZ+1)+"px)" ;
+function getPosition(side){
         
-        rightBackRight.style.transform = "rotateX("+(pitch)+"deg) rotateY("+(yaw+90)+"deg) translateX(100px) translateY(0px) translateZ("+(translateZ+1)+"px)" ; 
-        rightBackBack.style.transform = " rotateX("+(pitch)+"deg) rotateY("+(yaw+180)+"deg) translateX(-100px) translateY(0px) translateZ("+(translateZ)+"px)" ;
-       
-        backLeftBack.style.transform = " rotateX("+(pitch)+"deg) rotateY("+(yaw+180)+"deg) translateX(100px) translateY(0px) translateZ("+(translateZ+1)+"px)" ;
-        backLeftLeft.style.transform = "rotateX("+(pitch)+"deg) rotateY("+(yaw-90)+"deg)  translateX(-100px) translateY(0px) translateZ("+(translateZ+1)+"px)" ;
-       
-        topBackTop.style.transform = "rotateX( "+(pitch+90)+"deg) rotateY( 0deg) rotateZ("+(-yaw)+"deg) translateX(0px) translateY(-100px) translateZ("+(translateZ+1)+"px)" ;
-        topBackBack.style.transform = " rotateX("+(pitch)+"deg) rotateY("+(yaw+180)+"deg) translateX(0px) translateY(-100px) translateZ("+(translateZ+1)+"px)";
-       
-        bottomBackBottom.style.transform = "rotateX("+(pitch-90)+"deg) rotateY( 0deg) rotateZ("+(yaw)+"deg) translateX(0px) translateY(100px) translateZ("+(translateZ+1)+"px)" ;    
-        bottomBackBack.style.transform = " rotateX("+(pitch)+"deg) rotateY("+(yaw+180)+"deg) translateX(0px) translateY(100px) translateZ("+(translateZ)+"px)" ; 
-       
-        topLeftTop.style.transform = "rotateX( "+(pitch+90)+"deg) rotateY( 0deg) rotateZ("+(-yaw)+"deg) translateX(-100px) translateY(0px) translateZ("+(translateZ+1)+"px)" ;
-        topLeftLeft.style.transform = "rotateX("+(pitch)+"deg) rotateY("+(yaw-90)+"deg) translateX(0px) translateY(-100px) translateZ("+(translateZ+1)+"px)" ;
-       
-        bottomLeftBottom.style.transform = "rotateX("+(pitch-90)+"deg) rotateY( 0deg) rotateZ("+(yaw)+"deg) translateX(-100px) translateY(0px) translateZ("+(translateZ+1)+"px)" ;    
-        bottomLeftLeft.style.transform = "rotateX("+(pitch)+"deg) rotateY("+(yaw-90)+"deg) translateX(0px) translateY(100px)  translateZ("+(translateZ+1)+"px)" ;
-        
-        topRightTop.style.transform = "rotateX( "+(pitch+90)+"deg) rotateY( 0deg) rotateZ("+(-yaw)+"deg)  translateX(100px) translateY(0px) translateZ("+(translateZ+1)+"px)" ;
-        topRightRight.style.transform = "rotateX("+(pitch)+"deg) rotateY("+(yaw+90)+"deg) translateX(0px) translateY(-100px) translateZ("+(translateZ+1)+"px)" ;
-       
-        bottomRightBottom.style.transform = "rotateX("+(pitch-90)+"deg) rotateY( 0deg) rotateZ("+(yaw)+"deg) translateX(100px) translateY(0px) translateZ("+(translateZ+1)+"px)" ;    
-        bottomRightRight.style.transform = "rotateX("+(pitch)+"deg) rotateY("+(yaw+90)+"deg) translateX(0px) translateY(100px)translateZ("+(translateZ+1)+"px)" ;
-       
-        topLeftFrontTop.style.transform = "rotateX( "+(pitch+90)+"deg) rotateY( 0deg) rotateZ("+(-yaw)+"deg) translateX(-100px) translateY(100px)translateZ("+(translateZ+1)+"px)" ;
-        topLeftFrontLeft.style.transform = "rotateX("+(pitch)+"deg) rotateY("+(yaw-90)+"deg) translateX(100px) translateY(-100px) translateZ("+(translateZ+1)+"px)" ;
-        topLeftFrontFront.style.transform = "rotateX("+pitch+"deg) rotateY( "+(yaw)+"deg) translateX(-100px) translateY(-100px) translateZ("+(translateZ)+"px)" ;
-       
-        topFrontRightTop.style.transform = "rotateX( "+(pitch+90)+"deg) rotateY( 0deg) rotateZ("+(-yaw)+"deg) translateX(100px) translateY(100px) translateZ("+(translateZ+1)+"px)" ;
-        topFrontRightFront.style.transform = "rotateX("+(pitch)+"deg) rotateY("+(yaw)+"deg) translateX(100px) translateY(-100px) translateZ("+(translateZ+1)+"px)" ;
-        topFrontRightRight.style.transform = "rotateX("+pitch+"deg) rotateY( "+(yaw+90)+"deg) translateX(-100px) translateY(-100px) translateZ("+(translateZ)+"px)" ;
-       
-        topRightBackTop.style.transform = "rotateX( "+(pitch+90)+"deg) rotateY( 0deg) rotateZ("+(-yaw)+"deg) translateX(100px) translateY(-100px)translateZ("+(translateZ+1)+"px)" ;
-        topRightBackRight.style.transform = "rotateX("+(pitch)+"deg) rotateY("+(yaw+90)+"deg) translateX(100px) translateY(-100px) translateZ("+(translateZ+1)+"px)" ;
-        topRightBackBack.style.transform = "rotateX("+pitch+"deg) rotateY( "+(yaw+180)+"deg) translateX(-100px) translateY(-100px) translateZ("+(translateZ)+"px)" ;
-       
-        topBackLeftTop.style.transform = "rotateX( "+(pitch+90)+"deg) rotateY( 0deg) rotateZ("+(-yaw)+"deg) translateX(-100px) translateY(-100px) translateZ("+(translateZ+1)+"px)" ; 
-        topBackLeftBack.style.transform = "rotateX("+(pitch)+"deg) rotateY("+(yaw+180)+"deg) translateX(100px) translateY(-100px) translateZ("+(translateZ+1)+"px)" ;
-        topBackLeftLeft.style.transform = "rotateX("+pitch+"deg) rotateY( "+(yaw-90)+"deg) translateX(-100px) translateY(-100px) translateZ("+(translateZ+1)+"px)" ;
-     
-        bottomLeftFrontBottom.style.transform = "rotateX("+(pitch-90)+"deg) rotateY( 0deg) rotateZ("+(yaw)+"deg)translateX(-100px) translateY(-100px) translateZ("+(translateZ+1)+"px)" ;
-        bottomLeftFrontLeft.style.transform = "rotateX("+(pitch)+"deg) rotateY("+(yaw-90)+"deg) translateX(100px) translateY(100px) translateZ("+(translateZ+1)+"px)" ;
-        bottomLeftFrontFront.style.transform = "rotateX("+pitch+"deg) rotateY( "+(yaw)+"deg) translateX(-100px) translateY(100px) translateZ("+(translateZ+1)+"px)" ;
-
-        bottomFrontRightBottom.style.transform = "rotateX("+(pitch-90)+"deg) rotateY( 0deg) rotateZ("+(yaw)+"deg)  translateX(100px) translateY(-100px) translateZ("+(translateZ+1)+"px)" ;  
-        bottomFrontRightFront.style.transform = "rotateX("+pitch+"deg) rotateY( "+(yaw)+"deg) translateX(100px) translateY(100px) translateZ("+(translateZ+1)+"px)" ;
-        bottomFrontRightRight.style.transform = "rotateX("+(pitch)+"deg) rotateY("+(yaw+90)+"deg)translateX(-100px) translateY(100px) translateZ("+(translateZ+1)+"px)" ;
-     
-        bottomRightBackBottom.style.transform = "rotateX("+(pitch-90)+"deg) rotateY( 0deg) rotateZ("+(yaw)+"deg)translateX(100px) translateY(100px) translateZ("+(translateZ+1)+"px)" ;
-        bottomRightBackRight.style.transform = "rotateX("+(pitch)+"deg) rotateY("+(yaw+90)+"deg) translateX(100px) translateY(100px) translateZ("+(translateZ+1)+"px)" ;
-        bottomRightBackBack.style.transform = "rotateX("+pitch+"deg) rotateY( "+(yaw+180)+"deg) translateX(-100px) translateY(100px) translateZ("+(translateZ+1)+"px)" ;
-
-        bottomBackLeftBottom.style.transform = "rotateX("+(pitch-90)+"deg) rotateY( 0deg) rotateZ("+(yaw)+"deg) translateX(-100px) translateY(100px) translateZ("+(translateZ+1)+"px)" ;
-        bottomBackLeftBack.style.transform = " rotateX("+(pitch)+"deg) rotateY("+(yaw+180)+"deg) translateX(100px) translateY(100px) translateZ("+(translateZ+1)+"px)" ;
-        bottomBackLeftLeft.style.transform = "rotateX("+(pitch)+"deg) rotateY("+(yaw-90)+"deg) translateX(-100px) translateY(100px) translateZ("+(translateZ+1)+"px)" ;
 }
+function variables(){
+        rotateFaceZ = "rotateZ(0deg)";
+        rotateFaceX = "rotateX( "+(pitch)+"deg)";
+        rotateFaceXTop = "rotateX( "+(pitch+90)+"deg)";
+        rotateFaceXmBottom = "rotateX( "+(pitch-90)+"deg)";
+        rotateFaceY = "rotateY("+(yaw)+"deg)";
+        rotateFaceY0 = "rotateY(0deg)";
+        rotateFaceXTop = "rotateX( "+(pitch+90)+"deg)";
+        rotateFaceXBottom = "rotateX( "+(pitch-90)+"deg)";
+        rotateFaceYRight = "rotateY("+(yaw+90)+"deg)";
+        rotateFaceYBack = "rotateY("+(yaw+180)+"deg)";
+        rotateFaceYLeft = "rotateY("+(yaw+270)+"deg)";
+        rotateFaceZTop = "rotateZ("+(-yaw)+"deg)";
+        rotateFaceZBottom = "rotateZ("+(+yaw)+"deg)";
+
+}
+function turnCube(direction){
+
+        // tilePosition = [0,
+        //         "translateX(-100px) translateY(-100px)",//        ^
+        //         "translateX(0px) translateY(-100px)",   //        |-100y
+        //         "translateX(100px) translateY(-100px)", //        |
+        //         "translateX(-100px) translateY(0px)",   //-100x___|0_____100x>
+        //         "translateX(0px) translateY(0px)",      //        |
+        //         "translateX(100px) translateY(0px)",    //        |-100y            
+        //         "translateX(-100px) translateY(100px)",
+        //         "translateX(0px) translateY(100px)",
+        //         "translateX(100px) translateY(100px)"]; 
+ 
+        // rotateFaceX = "rotateX( "+(pitch)+"deg)";
+        // rotateFaceX = "rotateX( "+(pitch)+"deg)";
+        //rotateFaceY = "rotateY("+(yaw)+"deg)";
+       
+       variables();
+        var tile=1;
+
+        
+ //move inner sides--------------------------------------------
+        // moveFront.style.transform = rotateFaceX + "rotateY("+(yaw)+"deg)" + rotateFaceZ + " translateZ("+(translateZ-innerSpacing)+"px)";
+        // moveRight.style.transform = rotateFaceX + "rotateY("+(yaw+90)+"deg)" +rotateFaceZ + " translateZ("+(translateZ-innerSpacing)+"px)";
+        // moveLeft.style.transform = rotateFaceX + "rotateY("+(yaw-90)+"deg)" + rotateFaceZ + "  translateZ("+(translateZ-innerSpacing)+"px)" ;
+        // moveBack.style.transform = rotateFaceX + "rotateY("+(yaw+180)+"deg)" + rotateFaceZ + " translateZ("+(translateZ-innerSpacing)+"px)" ;
+        // moveTop.style.transform = "rotateX( "+(pitch+90)+"deg) rotateY( 0deg) rotateZ("+(-yaw)+"deg) translateZ("+(translateZ-innerSpacing)+"px)" ;
+        // moveBottom.style.transform = "rotateX("+(pitch-90)+"deg) rotateY( 0deg) rotateZ("+(yaw)+"deg) translateZ("+(translateZ-innerSpacing)+"px)" ;
 
 
 
- btnRight.addEventListener('click',turnRight);
- btnLeft.addEventListener('click',turnLeft);
- btnBottom.addEventListener('click',turnBottom);
- btnTop.addEventListener('click',turnTop);
+//move pieces--------------------------------------------
+
+        if (direction=="movetops"){
+                // whichSide=yaw;
+                // whichSide+=90;
+                // piecesArr[1].style.transform = rotateFaceX + "rotateY("+(yaw+90)+"deg)" + rotateFaceZ +tilePosition[tile] + pPopup ;   
+                // //alert(getComputedStyle(document.documentElement).getPropertyValue(piecesArr[1]));
+                //  //alert(whichSide);
+                piecesArr[1].style.transform = rotateFaceX + rotateFaceYRight + rotateFaceZ + tilePosition[1] + pPopup ; 
+                piecesArr[2].style.transform = rotateFaceX + rotateFaceYRight + rotateFaceZ + tilePosition[2] + pPopup ; 
+                piecesArr[3].style.transform = rotateFaceX + rotateFaceYRight + rotateFaceZ + tilePosition[3] + pPopup ; 
+                piecesArr[28].style.transform = rotateFaceX + rotateFaceY + rotateFaceZ + tilePosition[1] + pPopup ; 
+                piecesArr[29].style.transform = rotateFaceX + rotateFaceY + rotateFaceZ + tilePosition[2] + pPopup ; 
+                piecesArr[30].style.transform = rotateFaceX + rotateFaceY + rotateFaceZ + tilePosition[3] + pPopup ; 
+                piecesArr[10].style.transform = rotateFaceX + rotateFaceYBack + rotateFaceZ + tilePosition[1] + pPopup ; 
+                piecesArr[11].style.transform = rotateFaceX + rotateFaceYBack + rotateFaceZ + tilePosition[2] + pPopup ; 
+                piecesArr[12].style.transform = rotateFaceX + rotateFaceYBack + rotateFaceZ + tilePosition[3] + pPopup ; 
+                piecesArr[19].style.transform = rotateFaceX + rotateFaceYLeft + rotateFaceZ + tilePosition[1] + pPopup ; 
+                piecesArr[20].style.transform = rotateFaceX + rotateFaceYLeft + rotateFaceZ + tilePosition[2] + pPopup ; 
+                piecesArr[21].style.transform = rotateFaceX + rotateFaceYLeft + rotateFaceZ + tilePosition[3] + pPopup ; 
+        }
+
+        if (direction=="right" || direction=="left" || direction=="bottom" || direction=="top"){
+                
+                for(k=1;k<=54;k++){//54
+                        //bad ifs?
+                        //if (k < 10) rotateFaceY = "rotateY("+(yaw+whichSide)+"deg)";
+                        if (tile>=10) tile=1; 
+                        piecesArr[k].style.transform = rotateFaceX + rotateFaceY + rotateFaceZ +tilePosition[tile] + pPopup ; 
+                        //if (k < 10 && k>2) rotateFaceY = "rotateY("+(yaw)+"deg)";
+                        if (k >= 10) {piecesArr[k].style.transform = rotateFaceX + rotateFaceYRight + rotateFaceZ +tilePosition[tile] + pPopup  };
+                        if (k >= 19 && k <=27) {piecesArr[k].style.transform = rotateFaceX + rotateFaceYBack + rotateFaceZ +tilePosition[tile] + pPopup  };
+                        if (k >= 28 && k <= 36) {piecesArr[k].style.transform = rotateFaceX + rotateFaceYLeft + rotateFaceZ +tilePosition[tile] + pPopup  };
+                        if (k >= 37) {piecesArr[k].style.transform = rotateFaceXTop + rotateFaceY0 + rotateFaceZTop +tilePosition[tile] + pPopup};
+                        if (k >= 46) {piecesArr[k].style.transform = rotateFaceXBottom + rotateFaceY0 + rotateFaceZBottom +tilePosition[tile] + pPopup};
+                        
+                       // piecesArr[k].style.transform = rotateFaceX + rotateFaceY + rotateFaceZ +tilePosition[tile] + pPopup ; 
+                       tile++; 
+                       // alert(whichSide);
+                }
+
+                
+                // for(k=1;k<=54;k++){//54
+                //         //bad ifs?
+                //         if (k >= 10) rotateFaceY = "rotateY("+(yaw+90)+"deg)";
+                //         if (k >= 19 && k <=27) rotateFaceY = "rotateY("+(yaw+180)+"deg)";
+                //         if (k >= 28 && k <= 36) rotateFaceY = "rotateY("+(yaw-90)+"deg)";
+                //         if (k >= 37) {rotateFaceX = "rotateX("+(pitch+90)+"deg)"; rotateFaceY = "rotateY(0deg)"; rotateFaceZ = "rotateZ("+(-yaw)+"deg)" };
+                //         if (k >= 46) {rotateFaceX = "rotateX("+(pitch-90)+"deg)"; rotateFaceY = "rotateY(0deg)"; rotateFaceZ = "rotateZ("+(yaw)+"deg)" };
+                //         if (tile>=10) tile=1; 
+                //         piecesArr[k].style.transform = rotateFaceX + rotateFaceY + rotateFaceZ +tilePosition[tile] + pPopup ; 
+                //         tile++; 
+                // }
+
+                //alert(rotateFaceY+" "+yaw);
+        }
+
+ 
+        
+
+        // piecesArr[2].style.transform = piecesArr[11].style.transform;
+        // piecesArr[3].style.transform = piecesArr[12].style.transform;
+        // piecesArr[10].style.transform = piecesArr[19].style.transform;
+        // piecesArr[11].style.transform = piecesArr[20].style.transform;
+        // piecesArr[12].style.transform = piecesArr[21].style.transform;
+        // piecesArr[19].style.transform = piecesArr[28].style.transform;
+        // piecesArr[20].style.transform = piecesArr[29].style.transform;
+        // piecesArr[21].style.transform = piecesArr[30].style.transform;
+        // piecesArr[28].style.transform = piecesArr[1].style.transform;
+        // piecesArr[29].style.transform = piecesArr[2].style.transform;
+        // piecesArr[30].style.transform = piecesArr[3].style.transform;
+
+        
+}
+// function moveSegment(){
+//         piecesArr[1].style.transform = rotateFaceX + "rotateY("+(yaw+90)+"deg)" + rotateFaceZ +tilePosition[1] + pPopup ;   
+// }
+
+
+//button event listeners--------------------------------------------
+btnRight.addEventListener('click',function(){cubeMovement("right")});
+btnLeft.addEventListener('click',function(){cubeMovement("left")});
+btnBottom.addEventListener('click',function(){cubeMovement("bottom")});
+btnTop.addEventListener('click',function(){cubeMovement("top")});
+btnSegTop.addEventListener('click',function(){cubeMovement("movetops")});
+//window.addEventListener('load',getAxis);
+// btnReset.addEventListener('click',resetPosition); WIP
+
+

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/dist/style.css">
+    <link rel="stylesheet" href="dist/style.css">
     <title>JS Cube</title>
 </head>
 <body>
@@ -17,114 +17,72 @@
                 <div class="side" id="right"><h2>RIGHT</h2></div>
                 <div class="side" id="top"><h2>TOP</h2></div>
                 <div class="side" id="bottom"><h2>BOTTOM</h2></div>
-                <!-- <div class="pieces"> -->
-                    <div class="multi_piece" id="top_left_front">
-                        <div class="piece" id="top_left_front-top"><h2>TLFT</h2></div>
-                        <div class="piece" id="top_left_front-left"><h2>TLFL</h2></div>
-                        <div class="piece" id="top_left_front-front"><h2>TLFF</h2></div>
-                    </div>
-                    <div class="multi_piece" id="top_front">
-                        <div class="piece" id="top_front-top"><h2>TFT</h2></div>
-                        <div class="piece" id="top_front-front"><h2>TFF</h2></div>
-                    </div>
-                    <div class="multi_piece" id="top_front_right">
-                        <div class="piece" id="top_front_right-top"><h2>TFRT</h2></div>
-                        <div class="piece" id="top_front_right-front"><h2>TFRF</h2></div>
-                        <div class="piece" id="top_front_right-right"><h2>TFRR</h2></div>
-                    </div>
-                    <div class="multi_piece" id="left_front">
-                        <div class="piece" id="left_front-left"><h2>LFL</h2></div>
-                        <div class="piece" id="left_front-front"><h2>LFF</h2></div>
-                    </div>
-                    <div class="piece" id="front_center"><h2>FC</h2></div>
-                    <div class="multi_piece" id="front_right">
-                        <div class="piece" id="front_right-right"><h2>FRR</h2></div>
-                        <div class="piece" id="front_right-front"><h2>FRF</h2></div>
-                    </div>
-                    <div class="multi_piece" id="bottom_left_front">
-                        <div class="piece" id="bottom_left_front-bottom"><h2>BLFB</h2></div>
-                        <div class="piece" id="bottom_left_front-left"><h2>BLFL</h2></div>
-                        <div class="piece" id="bottom_left_front-front"><h2>BLFF</h2></div>
-                    </div>
-                    <div class="multi_piece" id="bottom_front">
-                        <div class="piece" id="bottom_front-bottom"><h2>BFB</h2></div>
-                        <div class="piece" id="bottom_front-front"><h2>BFF</h2></div>
-                    </div>
-                    <div class="multi_piece" id="bottom_front_right">
-                        <div class="piece" id="bottom_front_right-bottom"><h2>BFRB</h2></div>
-                        <div class="piece" id="bottom_front_right-front"><h2>BFRF</h2></div>
-                        <div class="piece" id="bottom_front_right-right"><h2>BFRR</h2></div>
-
-                    </div>
-                    
-                    <div class="multi_piece" id="top_right_back">
-                        <div class="piece" id="top_right_back-top"><h2>TRBT</h2></div>
-                        <div class="piece" id="top_right_back-right"><h2>TRBR</h2></div>
-                        <div class="piece" id="top_right_back-back"><h2>TRBB</h2></div>
-                    </div>
-                    <div class="multi_piece" id="top_back">
-                        <div class="piece" id="top_back-top"><h2>TBT</h2></div>
-                        <div class="piece" id="top_back-back"><h2>TBB</h2></div>
-                    </div>
-                    <div class="multi_piece" id="top_back_left">
-                        <div class="piece" id="top_back_left-top"><h2>TBLT</h2></div>
-                        <div class="piece" id="top_back_left-back"><h2>TBLB</h2></div>
-                        <div class="piece" id="top_back_left-left"><h2>TBLL</h2></div>
-                    </div>
-                    <div class="multi_piece" id="right_back">
-                        <div class="piece" id="right_back-right"><h2>FRR</h2></div>
-                        <div class="piece" id="right_back-back"><h2>FRF</h2></div>
-                    </div>
-                    <div class="piece" id="back_center"><h2>BC</h2></div>
-                    <div class="multi_piece" id="back_left">
-                        <div class="piece" id="back_left-back"><h2>BLB</h2></div>
-                        <div class="piece" id="back_left-left"><h2>BLL</h2></div>
-                    </div>
-                    <div class="multi_piece" id="bottom_right_back">
-                        <div class="piece" id="bottom_right_back-bottom"><h2>BRBB</h2></div>
-                        <div class="piece" id="bottom_right_back-right"><h2>BRBR</h2></div>
-                        <div class="piece" id="bottom_right_back-back"><h2>BRBB</h2></div>
-                    </div>
-                    <div class="multi_piece" id="bottom_back">
-                        <div class="piece" id="bottom_back-bottom"><h2>BBB</h2></div>
-                        <div class="piece" id="bottom_back-back"><h2>BBb</h2></div>
-                    </div>
-                    <div class="multi_piece" id="bottom_back_left">
-                        <div class="piece" id="bottom_back_left-bottom"><h2>BBLB</h2></div>
-                        <div class="piece" id="bottom_back_left-back"><h2>BBLB</h2></div>
-                        <div class="piece" id="bottom_back_left-left"><h2>BBLL</h2></div>
-                    </div>
-                    <div class="multi_piece" id="top_left">
-                        <div class="piece" id="top_left-top"><h2>TLT</h2></div>
-                        <div class="piece" id="top_left-left"><h2>TLL</h2></div>
-                    </div>
-                    <div class="piece" id="left_center"><h2>LC</h2></div>
-                    <div class="multi_piece" id="bottom_left">
-                        <div class="piece" id="bottom_left-bottom"><h2>BLB</h2></div>
-                        <div class="piece" id="bottom_left-left"><h2>BLL</h2></div>
-                    </div>
-                    <div class="multi_piece" id="top_right">
-                        <div class="piece" id="top_right-top"><h2>TRT</h2></div>
-                        <div class="piece" id="top_right-right"><h2>TRR</h2></div>
-                    </div>
-                    <div class="piece" id="right_center"><h2>RC</h2></div>
-                    <div class="multi_piece" id="bottom_right">
-                        <div class="piece" id="bottom_right-bottom"><h2>BRB</h2></div>
-                        <div class="piece" id="bottom_right-right"><h2>BRR</h2></div>
-                    </div>
-                    <div class="piece" id="top_center"><h2>TC</h2></div>
-                    <div class="piece" id="bottom_center"><h2>BC</h2></div>
-                    <!-- <div class="piece" id="middle"></div> -->
-                <!-- </div> -->
+                    <div class="multi_piece">
+                        <div class="piece" id="nb1"><div class="sticker front"><h2>1</h2></div></div>
+                        <div class="piece" id="nb2"><div class="sticker front"><h2>2</h2></div></div>
+                        <div class="piece" id="nb3"><div class="sticker front"><h2>3</h2></div></div>
+                        <div class="piece" id="nb4"><div class="sticker front"><h2>4</h2></div></div>
+                        <div class="piece" id="nb5"><div class="sticker front"><h2>5</h2></div></div>
+                        <div class="piece" id="nb6"><div class="sticker front"><h2>6</h2></div></div>
+                        <div class="piece" id="nb7"><div class="sticker front"><h2>7</h2></div></div>
+                        <div class="piece" id="nb8"><div class="sticker front"><h2>8</h2></div></div>
+                        <div class="piece" id="nb9"><div class="sticker front"><h2>9</h2></div></div>
+                        <div class="piece" id="nb10"><div class="sticker right"><h2>10</h2></div></div>
+                        <div class="piece" id="nb11"><div class="sticker right"><h2>11</h2></div></div>
+                        <div class="piece" id="nb12"><div class="sticker right"><h2>12</h2></div></div>
+                        <div class="piece" id="nb13"><div class="sticker right"><h2>13</h2></div></div>
+                        <div class="piece" id="nb14"><div class="sticker right"><h2>14</h2></div></div>
+                        <div class="piece" id="nb15"><div class="sticker right"><h2>15</h2></div></div>
+                        <div class="piece" id="nb16"><div class="sticker right"><h2>16</h2></div></div>
+                        <div class="piece" id="nb17"><div class="sticker right"><h2>17</h2></div></div>
+                        <div class="piece" id="nb18"><div class="sticker right"><h2>18</h2></div></div>
+                        <div class="piece" id="nb19"><div class="sticker back"><h2>19</h2></div></div>
+                        <div class="piece" id="nb20"><div class="sticker back"><h2>20</h2></div></div>
+                        <div class="piece" id="nb21"><div class="sticker back"><h2>21</h2></div></div>
+                        <div class="piece" id="nb22"><div class="sticker back"><h2>22</h2></div></div>
+                        <div class="piece" id="nb23"><div class="sticker back"><h2>23</h2></div></div>
+                        <div class="piece" id="nb24"><div class="sticker back"><h2>24</h2></div></div>
+                        <div class="piece" id="nb25"><div class="sticker back"><h2>25</h2></div></div>
+                        <div class="piece" id="nb26"><div class="sticker back"><h2>26</h2></div></div>
+                        <div class="piece" id="nb27"><div class="sticker back"><h2>27</h2></div></div>
+                        <div class="piece" id="nb28"><div class="sticker left"><h2>28</h2></div></div>
+                        <div class="piece" id="nb29"><div class="sticker left"><h2>29</h2></div></div>
+                        <div class="piece" id="nb30"><div class="sticker left"><h2>30</h2></div></div>
+                        <div class="piece" id="nb31"><div class="sticker left"><h2>31</h2></div></div>
+                        <div class="piece" id="nb32"><div class="sticker left"><h2>32</h2></div></div>
+                        <div class="piece" id="nb33"><div class="sticker left"><h2>33</h2></div></div>
+                        <div class="piece" id="nb34"><div class="sticker left"><h2>34</h2></div></div>
+                        <div class="piece" id="nb35"><div class="sticker left"><h2>35</h2></div></div>
+                        <div class="piece" id="nb36"><div class="sticker left"><h2>36</h2></div></div>
+                        <div class="piece" id="nb37"><div class="sticker top"><h2>37</h2></div></div>
+                        <div class="piece" id="nb38"><div class="sticker top"><h2>38</h2></div></div>
+                        <div class="piece" id="nb39"><div class="sticker top"><h2>39</h2></div></div>
+                        <div class="piece" id="nb40"><div class="sticker top"><h2>41</h2></div></div>
+                        <div class="piece" id="nb41"><div class="sticker top"><h2>41</h2></div></div>
+                        <div class="piece" id="nb42"><div class="sticker top"><h2>42</h2></div></div>
+                        <div class="piece" id="nb43"><div class="sticker top"><h2>43</h2></div></div>
+                        <div class="piece" id="nb44"><div class="sticker top"><h2>44</h2></div></div>
+                        <div class="piece" id="nb45"><div class="sticker top"><h2>45</h2></div></div>
+                        <div class="piece" id="nb46"><div class="sticker bottom"><h2>46</h2></div></div>
+                        <div class="piece" id="nb47"><div class="sticker bottom"><h2>47</h2></div></div>
+                        <div class="piece" id="nb48"><div class="sticker bottom"><h2>48</h2></div></div>
+                        <div class="piece" id="nb49"><div class="sticker bottom"><h2>49</h2></div></div>
+                        <div class="piece" id="nb50"><div class="sticker bottom"><h2>50</h2></div></div>
+                        <div class="piece" id="nb51"><div class="sticker bottom"><h2>51</h2></div></div>
+                        <div class="piece" id="nb52"><div class="sticker bottom"><h2>52</h2></div></div>
+                        <div class="piece" id="nb53"><div class="sticker bottom"><h2>53</h2></div></div>
+                        <div class="piece" id="nb54"><div class="sticker bottom"><h2>54</h2></div></div>
             </div>
-
+            <button class="btn_reset">RESET POSITION</button>
             <button class="btn_top">TOP</button>
             <button class="btn_left">LEFT</button>
             <button class="btn_right">RIGHT</button>
             <button class="btn_bottom">BOTTOM</button>
+            <button class="btn_left_side_up">Left UP</button>
+            <button class="btn_segment-top">top segment</button>
         </div>
     </div>
 
-    <script src="/app/js/script.js"></script>
+    <script src="app/js/script.js"></script>
 </body>
 </html>
