@@ -79,71 +79,6 @@
 </div>`;
 })();
 
-/*  <div class="piece">
-                    <div class="face back"</div>
-                    <div class="face left"</div>
-                    <div class="face front"</div>
-                    <div class="face right"</div>
-                    <div class="face top"</div>
-                    <div class="face bottom"</div>
-                 </div>
-<div class="multi_piece">
-                <div class="piece" id="tile_1"><div class="sticker front"><h2>1</h2></div></div>
-                <div class="piece" id="tile_2"><div class="sticker front"><h2>2</h2></div></div>
-                <div class="piece" id="tile_3"><div class="sticker front"><h2>3</h2></div></div>
-                <div class="piece" id="tile_4"><div class="sticker front"><h2>4</h2></div></div>
-                <div class="piece" id="tile_5"><div class="sticker front"><h2>5</h2></div></div>
-                <div class="piece" id="tile_6"><div class="sticker front"><h2>6</h2></div></div>
-                <div class="piece" id="tile_7"><div class="sticker front"><h2>7</h2></div></div>
-                <div class="piece" id="tile_8"><div class="sticker front"><h2>8</h2></div></div>
-                <div class="piece" id="tile_9"><div class="sticker front"><h2>9</h2></div></div>
-                <div class="piece" id="tile_10"><div class="sticker right"><h2>10</h2></div></div>
-                <div class="piece" id="tile_11"><div class="sticker right"><h2>11</h2></div></div>
-                <div class="piece" id="tile_12"><div class="sticker right"><h2>12</h2></div></div>
-                <div class="piece" id="tile_13"><div class="sticker right"><h2>13</h2></div></div>
-                <div class="piece" id="tile_14"><div class="sticker right"><h2>14</h2></div></div>
-                <div class="piece" id="tile_15"><div class="sticker right"><h2>15</h2></div></div>
-                <div class="piece" id="tile_16"><div class="sticker right"><h2>16</h2></div></div>
-                <div class="piece" id="tile_17"><div class="sticker right"><h2>17</h2></div></div>
-                <div class="piece" id="tile_18"><div class="sticker right"><h2>18</h2></div></div>
-                <div class="piece" id="tile_19"><div class="sticker back"><h2>19</h2></div></div>
-                <div class="piece" id="tile_20"><div class="sticker back"><h2>20</h2></div></div>
-                <div class="piece" id="tile_21"><div class="sticker back"><h2>21</h2></div></div>
-                <div class="piece" id="tile_22"><div class="sticker back"><h2>22</h2></div></div>
-                <div class="piece" id="tile_23"><div class="sticker back"><h2>23</h2></div></div>
-                <div class="piece" id="tile_24"><div class="sticker back"><h2>24</h2></div></div>
-                <div class="piece" id="tile_25"><div class="sticker back"><h2>25</h2></div></div>
-                <div class="piece" id="tile_26"><div class="sticker back"><h2>26</h2></div></div>
-                <div class="piece" id="tile_27"><div class="sticker back"><h2>27</h2></div></div>
-                <div class="piece" id="tile_28"><div class="sticker left"><h2>28</h2></div></div>
-                <div class="piece" id="tile_29"><div class="sticker left"><h2>29</h2></div></div>
-                <div class="piece" id="tile_30"><div class="sticker left"><h2>30</h2></div></div>
-                <div class="piece" id="tile_31"><div class="sticker left"><h2>31</h2></div></div>
-                <div class="piece" id="tile_32"><div class="sticker left"><h2>32</h2></div></div>
-                <div class="piece" id="tile_33"><div class="sticker left"><h2>33</h2></div></div>
-                <div class="piece" id="tile_34"><div class="sticker left"><h2>34</h2></div></div>
-                <div class="piece" id="tile_35"><div class="sticker left"><h2>35</h2></div></div>
-                <div class="piece" id="tile_36"><div class="sticker left"><h2>36</h2></div></div>
-                <div class="piece" id="tile_37"><div class="sticker top"><h2>37</h2></div></div>
-                <div class="piece" id="tile_38"><div class="sticker top"><h2>38</h2></div></div>
-                <div class="piece" id="tile_39"><div class="sticker top"><h2>39</h2></div></div>
-                <div class="piece" id="tile_40"><div class="sticker top"><h2>41</h2></div></div>
-                <div class="piece" id="tile_41"><div class="sticker top"><h2>41</h2></div></div>
-                <div class="piece" id="tile_42"><div class="sticker top"><h2>42</h2></div></div>
-                <div class="piece" id="tile_43"><div class="sticker top"><h2>43</h2></div></div>
-                <div class="piece" id="tile_44"><div class="sticker top"><h2>44</h2></div></div>
-                <div class="piece" id="tile_45"><div class="sticker top"><h2>45</h2></div></div>
-                <div class="piece" id="tile_46"><div class="sticker bottom"><h2>46</h2></div></div>
-                <div class="piece" id="tile_47"><div class="sticker bottom"><h2>47</h2></div></div>
-                <div class="piece" id="tile_48"><div class="sticker bottom"><h2>48</h2></div></div>
-                <div class="piece" id="tile_49"><div class="sticker bottom"><h2>49</h2></div></div>
-                <div class="piece" id="tile_50"><div class="sticker bottom"><h2>50</h2></div></div>
-                <div class="piece" id="tile_51"><div class="sticker bottom"><h2>51</h2></div></div>
-                <div class="piece" id="tile_52"><div class="sticker bottom"><h2>52</h2></div></div>
-                <div class="piece" id="tile_53"><div class="sticker bottom"><h2>53</h2></div></div>
-                <div class="piece" id="tile_54"><div class="sticker bottom"><h2>54</h2></div></div>
-                </div>*/
-
 //sides--------------------------------------------
 let moveFront = document.querySelector('.front');
 let moveRight = document.querySelector('.right');
@@ -166,38 +101,51 @@ let btnReset = document.querySelector('.btn_reset');
 let btnSegTop = document.querySelector('.btn_segment-top');
 
 //tiles------------------------------
-const tile1 = document.querySelector('#tile_1');
-console.log(tile1);
+// const tile1 = document.querySelector('#tile_1');
 
 //-------------------------
 //TODO
 let pitch = -45; //TODO
 let yaw = -45;
-class Render3dCube {
-    pitch = -45;
-    yaw = -45;
-    tile = 0;
 
-    // vol = this.size / 2;
-    renderCube(pos) {
+//MODEL-----------------------
+const state = {
+    pitch: -45,
+    yaw: -45,
+    tileState: {
+        1: {
+            cubeSide: 1, //1-6
+            tileNr: 1, //1-54
+        },
+        2: {},
+    },
+};
+//-----------------------------
+//CONTROLER-------------------
+
+class Controler {}
+//-----------------------------
+//VIEW----------------
+class RenderSide {
+    size = 300;
+    vol = this.size / 2;
+    pitch = state.pitch;
+    yaw = state.yaw;
+    renderSideEl(el, side, tile = 0) {
+        console.log(this.size);
         //variables
         const tilePos = new Map([
             //TODO
             [0, ''],
-            [
-                1,
-                `translateX(-${this.size / 3}px) translateY(-${
-                    this.size / 3
-                }px)`,
-            ], //     ^
-            [2, 'translateX(0px) translateY(-100px)'], //        |-100y
-            [3, 'translateX(100px) translateY(-100px)'], //      |
-            [4, 'translateX(-100px) translateY(0px)'], //-100x___|0_____100x>
-            [5, 'translateX(0px) translateY(0px)'], //           |
-            [6, 'translateX(100px) translateY(0px)'], //         |-100y
-            [7, 'translateX(-100px) translateY(100px)'],
-            [8, 'translateX(0px) translateY(100px)'],
-            [9, 'translateX(100px) translateY(100px)'],
+            [1, `translateX(-${this.size}px) translateY(-${this.size}px)`], //     ^
+            [2, `translateX(0px) translateY(-${this.size}px)`], //        |-100y
+            [3, `translateX(${this.size}px) translateY(-${this.size}px)`], //      |
+            [4, `translateX(-${this.size}px) translateY(0px)`], //-100x___|0_____100x>
+            [5, `translateX(0px) translateY(0px)`], //           |
+            [6, `translateX(${this.size}px) translateY(0px)`], //         |-100y
+            [7, `translateX(-${this.size}px) translateY(${this.size}px)`],
+            [8, `translateX(0px) translateY(${this.size}px)`],
+            [9, `translateX(${this.size}px) translateY(${this.size}px)`],
         ]);
 
         const dims = `width: ${this.size}px;
@@ -205,39 +153,42 @@ class Render3dCube {
         const sdPos = {
             front: `transform: rotateX(${this.pitch}deg) rotateY(${
                 this.yaw
-            }deg) translateZ(${this.vol}px) ${tilePos.get(
-                this.tile
-            )}; ${dims};`,
+            }deg) translateZ(${this.vol}px) ${tilePos.get(tile)}; ${dims};`,
             right: `transform: rotateX(${this.pitch}deg) rotateY(${
                 this.yaw + 90
-            }deg) translateZ(${this.vol}px) ${tilePos.get(
-                this.tile
-            )}; ${dims};`,
+            }deg) translateZ(${this.vol}px) ${tilePos.get(tile)}; ${dims};`,
             left: `transform: rotateX(${this.pitch}deg) rotateY(${
                 this.yaw + 270
-            }deg) translateZ(${this.vol}px) ${tilePos.get(
-                this.tile
-            )}; ${dims};`,
+            }deg) translateZ(${this.vol}px) ${tilePos.get(tile)}; ${dims};`,
             back: `transform: rotateX(${this.pitch}deg) rotateY(${
                 this.yaw + 180
-            }deg) translateZ(${this.vol}px) ${tilePos.get(
-                this.tile
-            )}; ${dims};`,
+            }deg) translateZ(${this.vol}px) ${tilePos.get(tile)}; ${dims};`,
             top: `transform: rotateX(${
                 this.pitch + 90
             }deg) rotateY(0deg) rotateZ(${-this.yaw}deg) translateZ(${
                 this.vol
-            }px) ${tilePos.get(this.tile)};
+            }px) ${tilePos.get(tile)};
             ${dims}`,
             bottom: `transform: rotateX(${
                 this.pitch - 90
             }deg) rotateY(0deg) rotateZ(${this.yaw}deg) translateZ(${
                 this.vol
-            }px) ${tilePos.get(this.tile)};
+            }px) ${tilePos.get(tile)};
             ${dims}`,
         };
         //Render selected Tile/side
-        document.querySelector(`#${pos}`).style = sdPos[`${pos}`];
+        document.querySelector(`#${el}`).style = sdPos[`${side}`];
+        // document.querySelector(`#tile_2`).style = sdPos[`front`];
+        console.log(document.querySelector(`#${el}`));
+    }
+    renderSides() {
+        // this.renderSideEl('front', 'front');
+        // this.renderSideEl('left', 'left');
+        // this.renderSideEl('right', 'right');
+        // this.renderSideEl('top', 'top');
+        // this.renderSideEl('bottom', 'bottom');
+        // this.renderSideEl('back', 'back');
+        // this.renderSideEl('tile_2', 'top'); //TODO
     }
     // drawCube() {
     //     //rendering cube
@@ -249,22 +200,13 @@ class Render3dCube {
     //     moveBottom.style = sdPos.bottom;
     // }
 }
-
-class Cube extends Render3dCube {
-    size = 300;
-    vol = this.size / 2;
+//-----------------------------
+class Cube extends RenderSide {
+    //TODO probably don't need this class
     //distance from the center in px
     constructor() {
         super();
         this.renderSides();
-    }
-    renderSides() {
-        this.renderCube('front');
-        this.renderCube('left');
-        this.renderCube('right');
-        this.renderCube('top');
-        this.renderCube('bottom');
-        this.renderCube('back');
     }
 
     cubeMovement(direction) {
@@ -284,9 +226,6 @@ class Cube extends Render3dCube {
             this.pitch += 90;
             this.renderSides();
         }
-        // if (direction == 'movetops') {
-        //     this.renderCube();
-        // }
     }
 }
 
@@ -302,20 +241,78 @@ let piecesPosition = [0];
 //     //     console.log(piecesArr[i]);
 // }
 
-class Stickers extends Render3dCube {
+class Tiles extends RenderSide {
     //TODO
+    temp = this.size;
+    // vol = this.temp - this.temp / 3;
+    size = this.temp / 3;
     constructor() {
         super();
-        this.size / 3; //TODO
-        this.tile = 1;
-        // this.renderCube('nb1');
+        this.renderTiles();
+        // this.size / 3; //TODO
     }
-    // renderCube(tile = 1) {} //TODO
+    renderTiles() {
+        //TODO `front` needs to read current position from the model
+        //TODO try to render tiles as pieces! 26 instead of 54!
+        //front top left corner
+        this.renderSideEl(`tile_${1}`, `front`, 1);
+        this.renderSideEl(`tile_${31}`, `left`, 3);
+        this.renderSideEl(`tile_${44}`, `top`, 7);
+        //front bottom left corner
+        this.renderSideEl(`tile_${7}`, `front`, 7);
+        this.renderSideEl(`tile_${36}`, `left`, 9);
+        this.renderSideEl(`tile_${46}`, `bottom`, 1);
+
+        //front top right corner
+        this.renderSideEl(`tile_${3}`, `front`, 3);
+        this.renderSideEl(`tile_${10}`, `right`, 1);
+        this.renderSideEl(`tile_${45}`, `top`, 9);
+        //front bottom right corner
+        this.renderSideEl(`tile_${9}`, `front`, 9);
+        this.renderSideEl(`tile_${16}`, `right`, 7);
+        this.renderSideEl(`tile_${49}`, `bottom`, 3);
+
+        //right top back corner
+        this.renderSideEl(`tile_${13}`, `right`, 3);
+        this.renderSideEl(`tile_${19}`, `back`, 1);
+        this.renderSideEl(`tile_${40}`, `top`, 3);
+        //right bottom back corner
+        this.renderSideEl(`tile_${18}`, `right`, 9);
+        this.renderSideEl(`tile_${25}`, `back`, 7);
+        this.renderSideEl(`tile_${54}`, `bottom`, 9);
+
+        //back top left corner
+        this.renderSideEl(`tile_${28}`, `left`, 1);
+        this.renderSideEl(`tile_${22}`, `back`, 3);
+        this.renderSideEl(`tile_${37}`, `top`, 1);
+        //back bottom left corner
+        this.renderSideEl(`tile_${35}`, `left`, 7);
+        this.renderSideEl(`tile_${27}`, `back`, 9);
+        this.renderSideEl(`tile_${52}`, `bottom`, 7);
+
+        //front 1-9
+        //right 10-18
+        //back 19-27
+        //left 28-36
+        //top 37-45
+        //bottom 46-54
+
+        // for (let i = 1; i <= 54; i++) {
+        //     if (i <= 9) this.renderSideEl(`tile_${i}`, `front`, i);
+        //     if (i > 9 && i <= 18)
+        //         this.renderSideEl(`tile_${i}`, 'right', i - 9);
+        //     if (i > 18 && i <= 27)
+        //         this.renderSideEl(`tile_${i}`, 'back', i - 18);
+        //     if (i > 27 && i <= 36) this.renderSideEl(`tile_${i}`, 'left', i);
+        //     if (i > 36 && i <= 45) this.renderSideEl(`tile_${i}`, 'top', i);
+        //     if (i > 45 && i <= 54) this.renderSideEl(`tile_${i}`, 'bottom', i);
+        // }
+    }
 }
 
 const d3cube = new Cube();
-const piece = new Stickers();
-
+const piece = new Tiles();
+// piece.renderSideEl('tile_1', 'top');
 //variables----------------------------------------
 
 let translateZ = 150;

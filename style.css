@@ -149,6 +149,9 @@ body .wrapper .scene .cube .side {
   -ms-flex-line-pack: center;
       align-content: center;
   vertical-align: middle;
+  -ms-flex-item-align: center;
+      align-self: center;
+  justify-self: center;
   cursor: pointer;
 }
 
@@ -232,7 +235,7 @@ body .wrapper .scene .cube .piece {
 body .wrapper .scene .cube .sticker {
   height: 96%;
   width: 96%;
-  border-radius: 15px;
+  border-radius: 15%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -256,6 +259,20 @@ body .wrapper .scene .cube .multi_piece {
           justify-content: center;
 }
 
+body .wrapper .scene .cube #tile_1,
+body .wrapper .scene .cube #tile_2,
+body .wrapper .scene .cube #tile_3,
+body .wrapper .scene .cube #tile_4,
+body .wrapper .scene .cube #tile_5,
+body .wrapper .scene .cube #tile_6,
+body .wrapper .scene .cube #tile_7,
+body .wrapper .scene .cube #tile_8,
+body .wrapper .scene .cube #tile_9 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 body .wrapper .scene .cube #tile_1 h2,
 body .wrapper .scene .cube #tile_2 h2,
 body .wrapper .scene .cube #tile_3 h2,
@@ -266,336 +283,6 @@ body .wrapper .scene .cube #tile_7 h2,
 body .wrapper .scene .cube #tile_8 h2,
 body .wrapper .scene .cube #tile_9 h2 {
   color: white;
-}
-
-body .wrapper .scene .cube #tile_1 {
-  -webkit-transform: var(--front) translateX(-100px) translateY(-100px) translateZ(150px);
-          transform: var(--front) translateX(-100px) translateY(-100px) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_2 {
-  -webkit-transform: var(--front) translateX(0px) translateY(-100px) translateZ(150px);
-          transform: var(--front) translateX(0px) translateY(-100px) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_3 {
-  -webkit-transform: var(--front) translateX(100px) translateY(-100px) translateZ(150px);
-          transform: var(--front) translateX(100px) translateY(-100px) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_4 {
-  -webkit-transform: var(--front) translateX(-100px) translateY(0px) translateZ(150px);
-          transform: var(--front) translateX(-100px) translateY(0px) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_5 {
-  -webkit-transform: var(--front) translateZ(150px);
-          transform: var(--front) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_6 {
-  -webkit-transform: var(--front) translateX(100px) translateY(0px) translateZ(150px);
-          transform: var(--front) translateX(100px) translateY(0px) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_7 {
-  -webkit-transform: var(--front) translateX(-100px) translateY(100px) translateZ(150px);
-          transform: var(--front) translateX(-100px) translateY(100px) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_8 {
-  -webkit-transform: var(--front) translateX(0px) translateY(100px) translateZ(150px);
-          transform: var(--front) translateX(0px) translateY(100px) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_9 {
-  -webkit-transform: var(--front) translateX(100px) translateY(100px) translateZ(150px);
-          transform: var(--front) translateX(100px) translateY(100px) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_10 h2,
-body .wrapper .scene .cube #tile_11 h2,
-body .wrapper .scene .cube #tile_12 h2,
-body .wrapper .scene .cube #tile_13 h2,
-body .wrapper .scene .cube #tile_14 h2,
-body .wrapper .scene .cube #tile_15 h2,
-body .wrapper .scene .cube #tile_16 h2,
-body .wrapper .scene .cube #tile_17 h2,
-body .wrapper .scene .cube #tile_18 h2 {
-  color: white;
-}
-
-body .wrapper .scene .cube #tile_10 {
-  -webkit-transform: var(--right) translateX(-100px) translateY(-100px) translateZ(150px);
-          transform: var(--right) translateX(-100px) translateY(-100px) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_11 {
-  -webkit-transform: var(--right) translateX(0px) translateY(-100px) translateZ(150px);
-          transform: var(--right) translateX(0px) translateY(-100px) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_12 {
-  -webkit-transform: var(--right) translateX(100px) translateY(-100px) translateZ(150px);
-          transform: var(--right) translateX(100px) translateY(-100px) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_13 {
-  -webkit-transform: var(--right) translateX(-100px) translateY(0px) translateZ(150px);
-          transform: var(--right) translateX(-100px) translateY(0px) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_14 {
-  -webkit-transform: var(--right) translateZ(150px);
-          transform: var(--right) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_15 {
-  -webkit-transform: var(--right) translateX(100px) translateY(0px) translateZ(150px);
-          transform: var(--right) translateX(100px) translateY(0px) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_16 {
-  -webkit-transform: var(--right) translateX(-100px) translateY(100px) translateZ(150px);
-          transform: var(--right) translateX(-100px) translateY(100px) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_17 {
-  -webkit-transform: var(--right) translateX(0px) translateY(100px) translateZ(150px);
-          transform: var(--right) translateX(0px) translateY(100px) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_18 {
-  -webkit-transform: var(--right) translateX(100px) translateY(100px) translateZ(150px);
-          transform: var(--right) translateX(100px) translateY(100px) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_19 h2,
-body .wrapper .scene .cube #tile_20 h2,
-body .wrapper .scene .cube #tile_21 h2,
-body .wrapper .scene .cube #tile_22 h2,
-body .wrapper .scene .cube #tile_23 h2,
-body .wrapper .scene .cube #tile_24 h2,
-body .wrapper .scene .cube #tile_25 h2,
-body .wrapper .scene .cube #tile_26 h2,
-body .wrapper .scene .cube #tile_27 h2 {
-  color: white;
-}
-
-body .wrapper .scene .cube #tile_19 {
-  -webkit-transform: var(--back) translateX(-100px) translateY(-100px) translateZ(150px);
-          transform: var(--back) translateX(-100px) translateY(-100px) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_20 {
-  -webkit-transform: var(--back) translateX(0px) translateY(-100px) translateZ(150px);
-          transform: var(--back) translateX(0px) translateY(-100px) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_21 {
-  -webkit-transform: var(--back) translateX(100px) translateY(-100px) translateZ(150px);
-          transform: var(--back) translateX(100px) translateY(-100px) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_22 {
-  -webkit-transform: var(--back) translateX(-100px) translateY(0px) translateZ(150px);
-          transform: var(--back) translateX(-100px) translateY(0px) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_23 {
-  -webkit-transform: var(--back) translateZ(150px);
-          transform: var(--back) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_24 {
-  -webkit-transform: var(--back) translateX(100px) translateY(0px) translateZ(150px);
-          transform: var(--back) translateX(100px) translateY(0px) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_25 {
-  -webkit-transform: var(--back) translateX(-100px) translateY(100px) translateZ(150px);
-          transform: var(--back) translateX(-100px) translateY(100px) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_26 {
-  -webkit-transform: var(--back) translateX(0px) translateY(100px) translateZ(150px);
-          transform: var(--back) translateX(0px) translateY(100px) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_27 {
-  -webkit-transform: var(--back) translateX(100px) translateY(100px) translateZ(150px);
-          transform: var(--back) translateX(100px) translateY(100px) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_28 h2,
-body .wrapper .scene .cube #tile_29 h2,
-body .wrapper .scene .cube #tile_30 h2,
-body .wrapper .scene .cube #tile_31 h2,
-body .wrapper .scene .cube #tile_32 h2,
-body .wrapper .scene .cube #tile_33 h2,
-body .wrapper .scene .cube #tile_34 h2,
-body .wrapper .scene .cube #tile_35 h2,
-body .wrapper .scene .cube #tile_36 h2 {
-  color: white;
-}
-
-body .wrapper .scene .cube #tile_28 {
-  -webkit-transform: var(--left) translateX(-100px) translateY(-100px) translateZ(150px);
-          transform: var(--left) translateX(-100px) translateY(-100px) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_29 {
-  -webkit-transform: var(--left) translateX(0px) translateY(-100px) translateZ(150px);
-          transform: var(--left) translateX(0px) translateY(-100px) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_30 {
-  -webkit-transform: var(--left) translateX(100px) translateY(-100px) translateZ(150px);
-          transform: var(--left) translateX(100px) translateY(-100px) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_31 {
-  -webkit-transform: var(--left) translateX(-100px) translateY(0px) translateZ(150px);
-          transform: var(--left) translateX(-100px) translateY(0px) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_32 {
-  -webkit-transform: var(--left) translateZ(150px);
-          transform: var(--left) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_33 {
-  -webkit-transform: var(--left) translateX(100px) translateY(0px) translateZ(150px);
-          transform: var(--left) translateX(100px) translateY(0px) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_34 {
-  -webkit-transform: var(--left) translateX(-100px) translateY(100px) translateZ(150px);
-          transform: var(--left) translateX(-100px) translateY(100px) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_35 {
-  -webkit-transform: var(--left) translateX(0px) translateY(100px) translateZ(150px);
-          transform: var(--left) translateX(0px) translateY(100px) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_36 {
-  -webkit-transform: var(--left) translateX(100px) translateY(100px) translateZ(150px);
-          transform: var(--left) translateX(100px) translateY(100px) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_37 h2,
-body .wrapper .scene .cube #tile_38 h2,
-body .wrapper .scene .cube #tile_39 h2,
-body .wrapper .scene .cube #tile_40 h2,
-body .wrapper .scene .cube #tile_41 h2,
-body .wrapper .scene .cube #tile_42 h2,
-body .wrapper .scene .cube #tile_43 h2,
-body .wrapper .scene .cube #tile_44 h2,
-body .wrapper .scene .cube #tile_45 h2 {
-  color: black;
-}
-
-body .wrapper .scene .cube #tile_37 {
-  -webkit-transform: var(--top) translateX(-100px) translateY(-100px) translateZ(150px);
-          transform: var(--top) translateX(-100px) translateY(-100px) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_38 {
-  -webkit-transform: var(--top) translateX(0px) translateY(-100px) translateZ(150px);
-          transform: var(--top) translateX(0px) translateY(-100px) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_39 {
-  -webkit-transform: var(--top) translateX(100px) translateY(-100px) translateZ(150px);
-          transform: var(--top) translateX(100px) translateY(-100px) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_40 {
-  -webkit-transform: var(--top) translateX(-100px) translateY(0px) translateZ(150px);
-          transform: var(--top) translateX(-100px) translateY(0px) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_41 {
-  -webkit-transform: var(--top) translateZ(150px);
-          transform: var(--top) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_42 {
-  -webkit-transform: var(--top) translateX(100px) translateY(0px) translateZ(150px);
-          transform: var(--top) translateX(100px) translateY(0px) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_43 {
-  -webkit-transform: var(--top) translateX(-100px) translateY(100px) translateZ(150px);
-          transform: var(--top) translateX(-100px) translateY(100px) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_44 {
-  -webkit-transform: var(--top) translateX(0px) translateY(100px) translateZ(150px);
-          transform: var(--top) translateX(0px) translateY(100px) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_45 {
-  -webkit-transform: var(--top) translateX(100px) translateY(100px) translateZ(150px);
-          transform: var(--top) translateX(100px) translateY(100px) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_46 h2,
-body .wrapper .scene .cube #tile_47 h2,
-body .wrapper .scene .cube #tile_48 h2,
-body .wrapper .scene .cube #tile_49 h2,
-body .wrapper .scene .cube #tile_50 h2,
-body .wrapper .scene .cube #tile_51 h2,
-body .wrapper .scene .cube #tile_52 h2,
-body .wrapper .scene .cube #tile_53 h2,
-body .wrapper .scene .cube #tile_54 h2 {
-  color: black;
-}
-
-body .wrapper .scene .cube #tile_46 {
-  -webkit-transform: var(--bottom) translateX(-100px) translateY(-100px) translateZ(150px);
-          transform: var(--bottom) translateX(-100px) translateY(-100px) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_47 {
-  -webkit-transform: var(--bottom) translateX(0px) translateY(-100px) translateZ(150px);
-          transform: var(--bottom) translateX(0px) translateY(-100px) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_48 {
-  -webkit-transform: var(--bottom) translateX(100px) translateY(-100px) translateZ(150px);
-          transform: var(--bottom) translateX(100px) translateY(-100px) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_49 {
-  -webkit-transform: var(--bottom) translateX(-100px) translateY(0px) translateZ(150px);
-          transform: var(--bottom) translateX(-100px) translateY(0px) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_50 {
-  -webkit-transform: var(--bottom) translateZ(150px);
-          transform: var(--bottom) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_51 {
-  -webkit-transform: var(--bottom) translateX(100px) translateY(0px) translateZ(150px);
-          transform: var(--bottom) translateX(100px) translateY(0px) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_52 {
-  -webkit-transform: var(--bottom) translateX(-100px) translateY(100px) translateZ(150px);
-          transform: var(--bottom) translateX(-100px) translateY(100px) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_53 {
-  -webkit-transform: var(--bottom) translateX(0px) translateY(100px) translateZ(150px);
-          transform: var(--bottom) translateX(0px) translateY(100px) translateZ(150px);
-}
-
-body .wrapper .scene .cube #tile_54 {
-  -webkit-transform: var(--bottom) translateX(100px) translateY(100px) translateZ(150px);
-          transform: var(--bottom) translateX(100px) translateY(100px) translateZ(150px);
 }
 
 .tst {
