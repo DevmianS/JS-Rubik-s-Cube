@@ -1,4 +1,21 @@
 'use strict';
+import * as MODEL from './model.js';
+
+const preEs6module = (function () {
+    const var1 = 1;
+    const var2 = 2;
+    const arr1 = [];
+    const method1 = function () {
+        arr1.push(var1 + var2);
+        console.log(arr1);
+    };
+    return {
+        var1,
+        method1,
+    };
+})();
+preEs6module.method1();
+
 //Init
 (() => {
     document.querySelector('body').innerHTML = `
@@ -108,19 +125,6 @@ let btnSegTop = document.querySelector('.btn_segment-top');
 let pitch = -45; //TODO
 let yaw = -45;
 
-//MODEL-----------------------
-const state = {
-    pitch: -45,
-    yaw: -45,
-    tileState: {
-        1: {
-            cubeSide: 1, //1-6
-            tileNr: 1, //1-54
-        },
-        2: {},
-    },
-};
-//-----------------------------
 //CONTROLER-------------------
 
 class Controler {}
@@ -129,10 +133,10 @@ class Controler {}
 class RenderSide {
     size = 300;
     vol = this.size / 2;
-    pitch = state.pitch;
-    yaw = state.yaw;
+    pitch = MODEL.state.pitch;
+    yaw = MODEL.state.yaw;
     renderSideEl(el, side, tile = 0) {
-        console.log(this.size);
+        // console.log(this.size);
         //variables
         const tilePos = new Map([
             //TODO
@@ -151,27 +155,29 @@ class RenderSide {
         const dims = `width: ${this.size}px;
         height: ${this.size}px;`;
         const sdPos = {
-            front: `transform: rotateX(${this.pitch}deg) rotateY(${
+            1: `transform: rotateX(${this.pitch}deg) rotateY(${
                 this.yaw
             }deg) translateZ(${this.vol}px) ${tilePos.get(tile)}; ${dims};`,
-            right: `transform: rotateX(${this.pitch}deg) rotateY(${
+            2: `transform: rotateX(${this.pitch}deg) rotateY(${
                 this.yaw + 90
             }deg) translateZ(${this.vol}px) ${tilePos.get(tile)}; ${dims};`,
-            left: `transform: rotateX(${this.pitch}deg) rotateY(${
-                this.yaw + 270
-            }deg) translateZ(${this.vol}px) ${tilePos.get(tile)}; ${dims};`,
-            back: `transform: rotateX(${this.pitch}deg) rotateY(${
+            3: `transform: rotateX(${this.pitch}deg) rotateY(${
                 this.yaw + 180
             }deg) translateZ(${this.vol}px) ${tilePos.get(tile)}; ${dims};`,
-            top: `transform: rotateX(${
+
+            4: `transform: rotateX(${this.pitch}deg) rotateY(${
+                this.yaw + 270
+            }deg) translateZ(${this.vol}px) ${tilePos.get(tile)}; ${dims};`,
+            5: `transform: rotateX(${
                 this.pitch + 90
             }deg) rotateY(0deg) rotateZ(${-this.yaw}deg) translateZ(${
                 this.vol
             }px) ${tilePos.get(tile)};
             ${dims}`,
-            bottom: `transform: rotateX(${
+            6: `transform: rotateX(${
                 this.pitch - 90
             }deg) rotateY(0deg) rotateZ(${this.yaw}deg) translateZ(${
+                //TODO this.yaw or this.yaw + 180?
                 this.vol
             }px) ${tilePos.get(tile)};
             ${dims}`,
@@ -179,15 +185,15 @@ class RenderSide {
         //Render selected Tile/side
         document.querySelector(`#${el}`).style = sdPos[`${side}`];
         // document.querySelector(`#tile_2`).style = sdPos[`front`];
-        console.log(document.querySelector(`#${el}`));
+        // console.log(document.querySelector(`#${el}`));
     }
     renderSides() {
-        // this.renderSideEl('front', 'front');
-        // this.renderSideEl('left', 'left');
-        // this.renderSideEl('right', 'right');
-        // this.renderSideEl('top', 'top');
-        // this.renderSideEl('bottom', 'bottom');
-        // this.renderSideEl('back', 'back');
+        this.renderSideEl('front', 'front');
+        this.renderSideEl('left', 'left');
+        this.renderSideEl('right', 'right');
+        this.renderSideEl('top', 'top');
+        this.renderSideEl('bottom', 'bottom');
+        this.renderSideEl('back', 'back');
         // this.renderSideEl('tile_2', 'top'); //TODO
     }
     // drawCube() {
@@ -199,6 +205,24 @@ class RenderSide {
     //     moveTop.style = sdPos.top;
     //     moveBottom.style = sdPos.bottom;
     // }
+    // cubeMovement(direction) {
+    //     if (direction == 'right') {
+    //         this.yaw += 90;
+    //         this.renderSides();
+    //     }
+    //     if (direction == 'left') {
+    //         this.yaw -= 90;
+    //         this.renderSides();
+    //     }
+    //     if (direction == 'bottom') {
+    //         this.pitch -= 90;
+    //         this.renderSides();
+    //     }
+    //     if (direction == 'top') {
+    //         this.pitch += 90;
+    //         this.renderSides();
+    //     }
+    // }
 }
 //-----------------------------
 class Cube extends RenderSide {
@@ -209,24 +233,24 @@ class Cube extends RenderSide {
         this.renderSides();
     }
 
-    cubeMovement(direction) {
-        if (direction == 'right') {
-            this.yaw += 90;
-            this.renderSides();
-        }
-        if (direction == 'left') {
-            this.yaw -= 90;
-            this.renderSides();
-        }
-        if (direction == 'bottom') {
-            this.pitch -= 90;
-            this.renderSides();
-        }
-        if (direction == 'top') {
-            this.pitch += 90;
-            this.renderSides();
-        }
-    }
+    // cubeMovement(direction) {
+    //     if (direction == 'right') {
+    //         this.yaw += 90;
+    //         this.renderSides();
+    //     }
+    //     if (direction == 'left') {
+    //         this.yaw -= 90;
+    //         this.renderSides();
+    //     }
+    //     if (direction == 'bottom') {
+    //         this.pitch -= 90;
+    //         this.renderSides();
+    //     }
+    //     if (direction == 'top') {
+    //         this.pitch += 90;
+    //         this.renderSides();
+    //     }
+    // }
 }
 
 //pieces--------------------------------------------
@@ -241,54 +265,79 @@ let piecesPosition = [0];
 //     //     console.log(piecesArr[i]);
 // }
 
-class Tiles extends RenderSide {
+class Pieces extends RenderSide {
     //TODO
     temp = this.size;
     // vol = this.temp - this.temp / 3;
     size = this.temp / 3;
+    tst = 0;
     constructor() {
         super();
-        this.renderTiles();
+        this.renderPieces();
         // this.size / 3; //TODO
     }
-    renderTiles() {
+    renderPieces() {
         //TODO `front` needs to read current position from the model
         //TODO try to render tiles as pieces! 26 instead of 54!
         //front top left corner
-        this.renderSideEl(`tile_${1}`, `front`, 1);
-        this.renderSideEl(`tile_${31}`, `left`, 3);
-        this.renderSideEl(`tile_${44}`, `top`, 7);
+        this.renderSideEl(
+            `tile_${MODEL.state.crnr.flt.tileNr[0]}`,
+            MODEL.state.crnr.flt.cubeSide[0],
+            MODEL.state.crnr.flt.tilePos[0]
+        );
+        this.renderSideEl(
+            `tile_${MODEL.state.crnr.flt.tileNr[1]}`,
+            MODEL.state.crnr.flt.cubeSide[1],
+            MODEL.state.crnr.flt.tilePos[1]
+        );
+        this.renderSideEl(
+            `tile_${MODEL.state.crnr.flt.tileNr[2]}`,
+            MODEL.state.crnr.flt.cubeSide[2],
+            MODEL.state.crnr.flt.tilePos[2]
+        );
         //front bottom left corner
-        this.renderSideEl(`tile_${7}`, `front`, 7);
-        this.renderSideEl(`tile_${36}`, `left`, 9);
-        this.renderSideEl(`tile_${46}`, `bottom`, 1);
-
+        this.renderSideEl(
+            `tile_${MODEL.state.crnr.flb.tileNr[0]}`,
+            MODEL.state.crnr.flb.cubeSide[0],
+            MODEL.state.crnr.flb.tilePos[0]
+        );
+        this.renderSideEl(
+            `tile_${MODEL.state.crnr.flb.tileNr[1]}`,
+            MODEL.state.crnr.flb.cubeSide[1],
+            MODEL.state.crnr.flb.tilePos[1]
+        );
+        this.renderSideEl(
+            `tile_${MODEL.state.crnr.flb.tileNr[2]}`,
+            MODEL.state.crnr.flb.cubeSide[2],
+            MODEL.state.crnr.flb.tilePos[2]
+        );
+        //TODO rest of the corners like this^
         //front top right corner
-        this.renderSideEl(`tile_${3}`, `front`, 3);
-        this.renderSideEl(`tile_${10}`, `right`, 1);
-        this.renderSideEl(`tile_${45}`, `top`, 9);
+        this.renderSideEl(`tile_${3}`, 1, 3);
+        this.renderSideEl(`tile_${10}`, 2, 1);
+        this.renderSideEl(`tile_${45}`, 5, 9);
         //front bottom right corner
-        this.renderSideEl(`tile_${9}`, `front`, 9);
-        this.renderSideEl(`tile_${16}`, `right`, 7);
-        this.renderSideEl(`tile_${49}`, `bottom`, 3);
+        this.renderSideEl(`tile_${9}`, 1, 9);
+        this.renderSideEl(`tile_${16}`, 2, 7);
+        this.renderSideEl(`tile_${49}`, 6, 3);
 
         //right top back corner
-        this.renderSideEl(`tile_${13}`, `right`, 3);
-        this.renderSideEl(`tile_${19}`, `back`, 1);
-        this.renderSideEl(`tile_${40}`, `top`, 3);
+        this.renderSideEl(`tile_${13}`, 2, 3);
+        this.renderSideEl(`tile_${19}`, 3, 1);
+        this.renderSideEl(`tile_${40}`, 5, 3);
         //right bottom back corner
-        this.renderSideEl(`tile_${18}`, `right`, 9);
-        this.renderSideEl(`tile_${25}`, `back`, 7);
-        this.renderSideEl(`tile_${54}`, `bottom`, 9);
+        this.renderSideEl(`tile_${18}`, 2, 9);
+        this.renderSideEl(`tile_${25}`, 3, 7);
+        this.renderSideEl(`tile_${54}`, 6, 9);
 
         //back top left corner
-        this.renderSideEl(`tile_${28}`, `left`, 1);
-        this.renderSideEl(`tile_${22}`, `back`, 3);
-        this.renderSideEl(`tile_${37}`, `top`, 1);
+        this.renderSideEl(`tile_${28}`, 4, 1);
+        this.renderSideEl(`tile_${22}`, 3, 3);
+        this.renderSideEl(`tile_${37}`, 5, 1);
         //back bottom left corner
-        this.renderSideEl(`tile_${35}`, `left`, 7);
-        this.renderSideEl(`tile_${27}`, `back`, 9);
-        this.renderSideEl(`tile_${52}`, `bottom`, 7);
+        this.renderSideEl(`tile_${35}`, 4, 7);
+        this.renderSideEl(`tile_${27}`, 3, 9);
+        this.renderSideEl(`tile_${52}`, 6, 7);
 
         //front 1-9
         //right 10-18
@@ -308,10 +357,28 @@ class Tiles extends RenderSide {
         //     if (i > 45 && i <= 54) this.renderSideEl(`tile_${i}`, 'bottom', i);
         // }
     }
+    cubeMovement(direction) {
+        if (direction == 'right') {
+            this.yaw += 90;
+            this.renderPieces();
+        }
+        if (direction == 'left') {
+            this.yaw -= 90;
+            this.renderPieces();
+        }
+        if (direction == 'bottom') {
+            this.pitch -= 90;
+            this.renderPieces();
+        }
+        if (direction == 'top') {
+            this.pitch += 90;
+            this.renderPieces();
+        }
+    }
 }
 
-const d3cube = new Cube();
-const piece = new Tiles();
+// const d3cube = new Cube();
+const piece = new Pieces();
 // piece.renderSideEl('tile_1', 'top');
 //variables----------------------------------------
 
@@ -585,19 +652,19 @@ function turnCube(direction) {
 //button event listeners--------------------------------------------
 btnRight.addEventListener('click', function () {
     // cubeMovement('right');
-    d3cube.cubeMovement('right');
+    piece.cubeMovement('right');
 });
 btnLeft.addEventListener('click', function () {
     // cubeMovement('left');
-    d3cube.cubeMovement('left');
+    piece.cubeMovement('left');
 });
 bttile_ottom.addEventListener('click', function () {
     // cubeMovement('bottom');
-    d3cube.cubeMovement('bottom');
+    piece.cubeMovement('bottom');
 });
 btnTop.addEventListener('click', function () {
     // cubeMovement('top');
-    d3cube.cubeMovement('top');
+    piece.cubeMovement('top');
 });
 btnSegTop.addEventListener('click', function () {
     // cubeMovement('movetops');
