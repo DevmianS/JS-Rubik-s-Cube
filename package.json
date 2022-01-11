@@ -2,7 +2,6 @@
     "name": "js-cube",
     "version": "1.0.0",
     "description": "Rubik's cube using JS and CSS",
-    "main": "index.js",
     "source": "./index.html",
     "scripts": {
         "start": "parcel",
