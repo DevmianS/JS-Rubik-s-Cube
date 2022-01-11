@@ -1,0 +1,19 @@
+{
+  "name": "js-cube",
+  "version": "1.0.0",
+  "description": "Rubik's cube using JS and CSS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dant3s15/JS-Rubik-s-Cube.git"
+  },
+  "author": "Dant3s",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dant3s15/JS-Rubik-s-Cube/issues"
+  },
+  "homepage": "https://github.com/Dant3s15/JS-Rubik-s-Cube#readme"
+}
