@@ -1,21 +1,6 @@
 'use strict';
 import * as MODEL from './model.js';
 
-const preEs6module = (function () {
-    const var1 = 1;
-    const var2 = 2;
-    const arr1 = [];
-    const method1 = function () {
-        arr1.push(var1 + var2);
-        console.log(arr1);
-    };
-    return {
-        var1,
-        method1,
-    };
-})();
-preEs6module.method1();
-
 //Init
 (() => {
     document.querySelector('body').innerHTML = `
@@ -136,7 +121,6 @@ class RenderSide {
     pitch = MODEL.state.pitch;
     yaw = MODEL.state.yaw;
     renderSideEl(el, side, tile = 0) {
-        // console.log(this.size);
         //variables
         const tilePos = new Map([
             //TODO
@@ -184,8 +168,6 @@ class RenderSide {
         };
         //Render selected Tile/side
         document.querySelector(`#${el}`).style = sdPos[`${side}`];
-        // document.querySelector(`#tile_2`).style = sdPos[`front`];
-        // console.log(document.querySelector(`#${el}`));
     }
     renderSides() {
         this.renderSideEl('front', 'front');
@@ -196,33 +178,6 @@ class RenderSide {
         this.renderSideEl('back', 'back');
         // this.renderSideEl('tile_2', 'top'); //TODO
     }
-    // drawCube() {
-    //     //rendering cube
-    //     moveFront.style = sdPos.front;
-    //     moveRight.style = sdPos.right;
-    //     moveLeft.style = sdPos.left;
-    //     moveBack.style = sdPos.back;
-    //     moveTop.style = sdPos.top;
-    //     moveBottom.style = sdPos.bottom;
-    // }
-    // cubeMovement(direction) {
-    //     if (direction == 'right') {
-    //         this.yaw += 90;
-    //         this.renderSides();
-    //     }
-    //     if (direction == 'left') {
-    //         this.yaw -= 90;
-    //         this.renderSides();
-    //     }
-    //     if (direction == 'bottom') {
-    //         this.pitch -= 90;
-    //         this.renderSides();
-    //     }
-    //     if (direction == 'top') {
-    //         this.pitch += 90;
-    //         this.renderSides();
-    //     }
-    // }
 }
 //-----------------------------
 class Cube extends RenderSide {
@@ -277,85 +232,22 @@ class Pieces extends RenderSide {
         // this.size / 3; //TODO
     }
     renderPieces() {
-        //TODO `front` needs to read current position from the model
-        //TODO try to render tiles as pieces! 26 instead of 54!
-        //front top left corner
-        this.renderSideEl(
-            `tile_${MODEL.state.crnr.flt.tileNr[0]}`,
-            MODEL.state.crnr.flt.cubeSide[0],
-            MODEL.state.crnr.flt.tilePos[0]
-        );
-        this.renderSideEl(
-            `tile_${MODEL.state.crnr.flt.tileNr[1]}`,
-            MODEL.state.crnr.flt.cubeSide[1],
-            MODEL.state.crnr.flt.tilePos[1]
-        );
-        this.renderSideEl(
-            `tile_${MODEL.state.crnr.flt.tileNr[2]}`,
-            MODEL.state.crnr.flt.cubeSide[2],
-            MODEL.state.crnr.flt.tilePos[2]
-        );
-        //front bottom left corner
-        this.renderSideEl(
-            `tile_${MODEL.state.crnr.flb.tileNr[0]}`,
-            MODEL.state.crnr.flb.cubeSide[0],
-            MODEL.state.crnr.flb.tilePos[0]
-        );
-        this.renderSideEl(
-            `tile_${MODEL.state.crnr.flb.tileNr[1]}`,
-            MODEL.state.crnr.flb.cubeSide[1],
-            MODEL.state.crnr.flb.tilePos[1]
-        );
-        this.renderSideEl(
-            `tile_${MODEL.state.crnr.flb.tileNr[2]}`,
-            MODEL.state.crnr.flb.cubeSide[2],
-            MODEL.state.crnr.flb.tilePos[2]
-        );
-        //TODO rest of the corners like this^
-        //front top right corner
-        this.renderSideEl(`tile_${3}`, 1, 3);
-        this.renderSideEl(`tile_${10}`, 2, 1);
-        this.renderSideEl(`tile_${45}`, 5, 9);
-        //front bottom right corner
-        this.renderSideEl(`tile_${9}`, 1, 9);
-        this.renderSideEl(`tile_${16}`, 2, 7);
-        this.renderSideEl(`tile_${49}`, 6, 3);
-
-        //right top back corner
-        this.renderSideEl(`tile_${13}`, 2, 3);
-        this.renderSideEl(`tile_${19}`, 3, 1);
-        this.renderSideEl(`tile_${40}`, 5, 3);
-        //right bottom back corner
-        this.renderSideEl(`tile_${18}`, 2, 9);
-        this.renderSideEl(`tile_${25}`, 3, 7);
-        this.renderSideEl(`tile_${54}`, 6, 9);
-
-        //back top left corner
-        this.renderSideEl(`tile_${28}`, 4, 1);
-        this.renderSideEl(`tile_${22}`, 3, 3);
-        this.renderSideEl(`tile_${37}`, 5, 1);
-        //back bottom left corner
-        this.renderSideEl(`tile_${35}`, 4, 7);
-        this.renderSideEl(`tile_${27}`, 3, 9);
-        this.renderSideEl(`tile_${52}`, 6, 7);
-
+        //Rendering corners
+        for (let i = 0; i < 8; i++) {
+            for (let j = 0; j < 3; j++) {
+                this.renderSideEl(
+                    `tile_${MODEL.state.crnr[MODEL.crnPiece[i]].tileNr[j]}`,
+                    MODEL.state.crnr[MODEL.crnPiece[i]].cubeSide[j],
+                    MODEL.state.crnr[MODEL.crnPiece[i]].tilePos[j]
+                );
+            }
+        }
         //front 1-9
         //right 10-18
         //back 19-27
         //left 28-36
         //top 37-45
         //bottom 46-54
-
-        // for (let i = 1; i <= 54; i++) {
-        //     if (i <= 9) this.renderSideEl(`tile_${i}`, `front`, i);
-        //     if (i > 9 && i <= 18)
-        //         this.renderSideEl(`tile_${i}`, 'right', i - 9);
-        //     if (i > 18 && i <= 27)
-        //         this.renderSideEl(`tile_${i}`, 'back', i - 18);
-        //     if (i > 27 && i <= 36) this.renderSideEl(`tile_${i}`, 'left', i);
-        //     if (i > 36 && i <= 45) this.renderSideEl(`tile_${i}`, 'top', i);
-        //     if (i > 45 && i <= 54) this.renderSideEl(`tile_${i}`, 'bottom', i);
-        // }
     }
     cubeMovement(direction) {
         if (direction == 'right') {
