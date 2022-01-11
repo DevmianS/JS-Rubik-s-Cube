@@ -236,12 +236,33 @@ class Pieces extends RenderSide {
         for (let i = 0; i < 8; i++) {
             for (let j = 0; j < 3; j++) {
                 this.renderSideEl(
-                    `tile_${MODEL.state.crnr[MODEL.crnPiece[i]].tileNr[j]}`,
-                    MODEL.state.crnr[MODEL.crnPiece[i]].cubeSide[j],
-                    MODEL.state.crnr[MODEL.crnPiece[i]].tilePos[j]
+                    `tile_${MODEL.state.crnr[MODEL.crnPieces[i]].tileNr[j]}`,
+                    MODEL.state.crnr[MODEL.crnPieces[i]].cubeSide[j],
+                    MODEL.state.crnr[MODEL.crnPieces[i]].tilePos[j]
                 );
             }
         }
+
+        //Rendering middle pieces
+        for (let i = 0; i < 6; i++) {
+            this.renderSideEl(
+                `tile_${MODEL.state.cntr.tileNr[i]}`,
+                MODEL.state.cntr.cubeSide[i],
+                MODEL.state.cntr.tilePos[i]
+            );
+        }
+
+        //Rendering edge pieces
+        for (let i = 0; i < 12; i++) {
+            for (let j = 0; j < 2; j++) {
+                this.renderSideEl(
+                    `tile_${MODEL.state.edgs[MODEL.edgePieces[i]].tileNr[j]}`,
+                    MODEL.state.edgs[MODEL.edgePieces[i]].cubeSide[j],
+                    MODEL.state.edgs[MODEL.edgePieces[i]].tilePos[j]
+                );
+            }
+        }
+
         //front 1-9
         //right 10-18
         //back 19-27
