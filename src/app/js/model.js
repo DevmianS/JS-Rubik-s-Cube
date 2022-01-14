@@ -27,9 +27,8 @@ export const edgePieces = [
 export const midPieces = ['front', 'right', 'back', 'left', 'top', 'bottom'];
 
 export const state = {
-    pitch: -45,
+    pitch: -30,
     yaw: -45,
-
     crnr: {
         //front left top
         [crnPieces[0]]: {
