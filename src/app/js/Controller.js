@@ -44,6 +44,11 @@ const cubeMovement = function (direction) {
     }
 };
 
+const stateSetter = function () {
+    state.crnr[crnPieces[2]].cubeSide[0] += 1;
+    state.crnr[crnPieces[2]].cubeSide[1] += 1;
+};
+
 //css sides variables-------------------------------
 let tilePosition = [
     0,
@@ -76,7 +81,11 @@ btnTop.addEventListener('click', function () {
     cubeMovement('top');
 });
 btnSegTop.addEventListener('click', function () {
-    cubeMovement('topRow');
+    // cubeMovement('topRow');
+    //TODO
+    state.stateSetter();
+    CUBE.readState();
+    CUBE.renderPieces();
 });
 //window.addEventListener('load',getAxis);
 // btnReset.addEventListener('click',resetPosition); WIP

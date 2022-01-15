@@ -3,7 +3,7 @@ import { state, crnPieces, edgePieces } from './Model.js';
 
 //Init
 (() => {
-    document.querySelector('body').innerHTML = `
+    document.querySelector('.d3cube').innerHTML = `
    <div class = "wrapper"> 
     <div class="scene">
         <div class="cube">
@@ -82,7 +82,9 @@ export class RenderSide {
         this.vol = state.vol;
         this.pitch = state.pitch;
         this.yaw = state.yaw;
+        this.yawTop = state.yawTop;
     }
+    //TODO fix pitch and yaw and make rotation from 360 deg to 0 instant
 
     renderSideEl(el, side, tile = 0) {
         this.readState();
