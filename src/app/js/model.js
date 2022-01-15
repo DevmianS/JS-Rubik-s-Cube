@@ -32,13 +32,13 @@ export const state = {
     size: 300,
     vol: 150, //need to be half of size
     //TODO make vol half of size automatically
-    TEST: 1,
+    topLayRot: 0,
     cubeSide: [0, 1, 2, 3, 4, 5, 6],
+
     method() {
         this.yawTop = 0;
         console.log(state);
     },
-    stateSetter() {},
 
     // vol: this.size / 2,
     crnr: {
@@ -91,7 +91,7 @@ export const state = {
             cubeSide: [4, 3, 6], //1-6
         },
     },
-    edgs: {
+    edges: {
         [edgePieces[0]]: {
             tileNr: [2, 44], //1-54
             tilePos: [2, 8], //1-9
@@ -159,24 +159,6 @@ export const state = {
         tileNr: [5, 14, 23, 32, 41, 50], //1-54
         tilePos: [5, 5, 5, 5, 5, 5], //1-9
         cubeSide: [1, 2, 3, 4, 5, 6], //1-6
-    },
-
-    countToFour(val) {
-        if (val > 4) {
-            return 1;
-        }
-        if (val < 1) {
-            return 4;
-        } else return val;
-    },
-    //TODO
-    stateSetter() {
-        state.crnr[crnPieces[2]].cubeSide[0] = this.countToFour(
-            state.crnr[crnPieces[2]].cubeSide[0] + 1
-        );
-        state.crnr[crnPieces[2]].cubeSide[1] = this.countToFour(
-            state.crnr[crnPieces[2]].cubeSide[1] + 1
-        );
     },
 };
 // state.method();

@@ -83,6 +83,7 @@ export class RenderSide {
         this.pitch = state.pitch;
         this.yaw = state.yaw;
         this.yawTop = state.yawTop;
+        this.topLayRot = state.topLayRot;
     }
     //TODO fix pitch and yaw and make rotation from 360 deg to 0 instant
 
@@ -121,9 +122,9 @@ export class RenderSide {
             }deg) translateZ(${this.vol}px) ${tilePos.get(tile)}; ${dims};`,
             5: `transform: rotateX(${
                 this.pitch + 90
-            }deg) rotateY(0deg) rotateZ(${-this.yaw}deg) translateZ(${
-                this.vol
-            }px) ${tilePos.get(tile)};
+            }deg) rotateY(0deg) rotateZ(${
+                -this.yaw + this.topLayRot
+            }deg) translateZ(${this.vol}px) ${tilePos.get(tile)};
           ${dims}`,
             6: `transform: rotateX(${
                 this.pitch - 90
@@ -171,9 +172,9 @@ export class Pieces extends RenderSide {
         for (let i = 0; i < 12; i++) {
             for (let j = 0; j < 2; j++) {
                 this.renderSideEl(
-                    `tile_${state.edgs[edgePieces[i]].tileNr[j]}`,
-                    state.edgs[edgePieces[i]].cubeSide[j],
-                    state.edgs[edgePieces[i]].tilePos[j]
+                    `tile_${state.edges[edgePieces[i]].tileNr[j]}`,
+                    state.edges[edgePieces[i]].cubeSide[j],
+                    state.edges[edgePieces[i]].tilePos[j]
                 );
             }
         }

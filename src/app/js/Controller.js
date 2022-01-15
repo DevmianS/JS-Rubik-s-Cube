@@ -18,7 +18,7 @@ let bttile_bottom = document.querySelector('.btn_bottom'); //TODO typo
 let btnTop = document.querySelector('.btn_top');
 let btnReset = document.querySelector('.btn_reset');
 let btnSegTop = document.querySelector('.btn_segment-top');
-const CUBE = new Pieces(); //TODO Cube object
+const CUBE = new Pieces(); //TODO Maybe need to make 26 cube objects?
 CUBE.renderPieces(); //cube init render
 
 const cubeMovement = function (direction) {
@@ -42,6 +42,30 @@ const cubeMovement = function (direction) {
         state.yawTop += 90;
         CUBE.renderPieces();
     }
+};
+
+const layerRotation = {
+    _countToFour(val) {
+        if (val > 4) {
+            return 1;
+        }
+        if (val < 1) {
+            return 4;
+        } else return val;
+    },
+    //TODO
+    stateSetter() {
+        //corners
+        for (let i = 0; i <= 6; i += 2) {
+            state.crnr[crnPieces[i]].cubeSide[0] = this._countToFour(
+                state.crnr[crnPieces[i]].cubeSide[0] + 1
+            );
+            state.crnr[crnPieces[i]].cubeSide[1] = this._countToFour(
+                state.crnr[crnPieces[i]].cubeSide[1] + 1
+            );
+        }
+        for (let i = 0; i < 6; i++) {}
+    },
 };
 
 const stateSetter = function () {
@@ -83,7 +107,8 @@ btnTop.addEventListener('click', function () {
 btnSegTop.addEventListener('click', function () {
     // cubeMovement('topRow');
     //TODO
-    state.stateSetter();
+    state.topLayRot -= 90;
+    layerRotation.stateSetter();
     CUBE.readState();
     CUBE.renderPieces();
 });
