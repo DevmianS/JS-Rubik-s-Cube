@@ -29,6 +29,11 @@ export const midPieces = ['front', 'right', 'back', 'left', 'top', 'bottom'];
 export const state = {
     pitch: -30,
     yaw: -45,
+    size: 300,
+    vol: 150, //need to be half of size
+    //TODO make vol half of size automatically
+
+    // vol: this.size / 2,
     crnr: {
         //front left top
         [crnPieces[0]]: {
