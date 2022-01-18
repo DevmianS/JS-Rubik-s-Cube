@@ -18,6 +18,7 @@ let bttile_bottom = document.querySelector('.btn_bottom'); //TODO typo
 let btnTop = document.querySelector('.btn_top');
 let btnReset = document.querySelector('.btn_reset');
 let btnSegTop = document.querySelector('.btn_segment-top');
+let btnSegRig = document.querySelector('.btn_segment-right');
 const CUBE = new Pieces(); //TODO Maybe need to make 26 cube objects?
 CUBE.renderPieces(); //cube init render
 
@@ -37,34 +38,82 @@ const cubeMovement = function (direction) {
     if (direction == 'top') {
         state.pitch += 90;
         CUBE.renderPieces();
-    }
-    if (direction == 'topRow') {
-        state.yawTop += 90;
+    } else {
+        // state.yawTop += 90;
         CUBE.renderPieces();
     }
 };
 
 const layerRotation = {
-    _countToFour(val) {
-        if (val > 4) {
+    _countToNumber(val, number) {
+        if (val > number) {
             return 1;
         }
         if (val < 1) {
-            return 4;
+            return number;
         } else return val;
     },
     //TODO
-    stateSetter() {
+    stateSetter(side) {
+        // console.log(state.crnr[0].cubeSide);
         //corners
-        for (let i = 0; i <= 6; i += 2) {
-            state.crnr[crnPieces[i]].cubeSide[0] = this._countToFour(
-                state.crnr[crnPieces[i]].cubeSide[0] + 1
-            );
-            state.crnr[crnPieces[i]].cubeSide[1] = this._countToFour(
-                state.crnr[crnPieces[i]].cubeSide[1] + 1
-            );
+
+        switch (side) {
+            case 1:
+                break;
+            case 2:
+                state.rigLayRot -= 90;
+
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                state.topLayRot -= 90;
+                //TODO wrap loop over crnDefault and piecPos
+
+                state.crnr.topRotation++;
+                for (let i = 0; i < 4; i++) {
+                    state.crnr.piecPos[i] =
+                        state.crnr.crnDefault[
+                            (i + 4 + state.crnr.topRotation) % 4
+                        ];
+
+                    //PIECE
+                    state.crnr[i].cubeSide[0] = this._countToNumber(
+                        state.crnr[i].cubeSide[0] + 1,
+                        4
+                    );
+                    state.crnr[i].cubeSide[1] = this._countToNumber(
+                        state.crnr[i].cubeSide[1] + 1,
+                        4
+                    );
+                    console.log(
+                        'new',
+                        state.crnr.piecPos[i],
+                        state.crnr[i].tileNr[0]
+                    );
+                }
+                console.log('-----------');
+                console.log(state.crnr.piecPos);
+                console.log('-----------');
+                // console.log(state.edges[0].cubeSide[1]);
+                for (let i = 0; i < 4; i++) {
+                    state.edges[i].cubeSide[0] = this._countToNumber(
+                        state.edges[i].cubeSide[0] + 1,
+                        4
+                    );
+                }
+                break;
+            case 6:
+                break;
+
+            default:
+                break;
         }
-        for (let i = 0; i < 6; i++) {}
+        // if (side == 'top') {
+        // }
     },
 };
 
@@ -107,10 +156,31 @@ btnTop.addEventListener('click', function () {
 btnSegTop.addEventListener('click', function () {
     // cubeMovement('topRow');
     //TODO
-    state.topLayRot -= 90;
-    layerRotation.stateSetter();
+
+    layerRotation.stateSetter(5);
     CUBE.readState();
     CUBE.renderPieces();
 });
+btnSegRig.addEventListener('click', function () {
+    // cubeMovement('topRow');
+    //TODO
+    layerRotation.stateSetter(2);
+    CUBE.readState();
+    CUBE.renderPieces();
+});
+
 //window.addEventListener('load',getAxis);
 // btnReset.addEventListener('click',resetPosition); WIP
+//-------------TESTING------------
+let testArr = ['-', '-', 'X', '-', '-'];
+let testArr2 = [];
+
+let tst = function (val) {
+    for (let i = 0; i < testArr.length; i++) {
+        testArr2[i] = testArr[(i + testArr.length + val) % testArr.length];
+        console.log((i + testArr.length) % testArr.length);
+    }
+    console.log(testArr2);
+};
+
+// tst(1);

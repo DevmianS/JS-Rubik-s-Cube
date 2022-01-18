@@ -7,6 +7,11 @@
 //     color: #2f2f2f;
 //     blend-mode: overlay;
 // }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 .d3cube {
     border: solid 1px red;
     display: inline-block;
@@ -31,7 +36,7 @@
             font-size: 30px;
             align-self: center;
             margin: auto;
-            visibility: hidden;
+            // visibility: hidden;
         }
         //buttons
         button {
@@ -67,6 +72,10 @@
         .btn_segment-top {
             left: 350px;
             top: -50px;
+        }
+        .btn_segment-right {
+            left: 350px;
+            top: 350px;
         }
 
         .scene {

@@ -71,6 +71,7 @@ import { state, crnPieces, edgePieces } from './Model.js';
             <button class="btn_bottom">BOTTOM</button>
             <button class="btn_left_side_up">Left UP</button>
             <button class="btn_segment-top">top segment</button>
+            <button class="btn_segment-right">right segment</button>
         </div>
     </div>
 </div>`;
@@ -84,6 +85,7 @@ export class RenderSide {
         this.yaw = state.yaw;
         this.yawTop = state.yawTop;
         this.topLayRot = state.topLayRot;
+        this.rigLayRot = state.rigLayRot;
     }
     //TODO fix pitch and yaw and make rotation from 360 deg to 0 instant
 
@@ -105,14 +107,16 @@ export class RenderSide {
 
         const dims = `width: ${this.size}px;
       height: ${this.size}px;`;
-
+        //TODO rotateZ
         const sdPos = {
             1: `transform: rotateX(${this.pitch}deg) rotateY(${
                 this.yaw
             }deg) translateZ(${this.vol}px) ${tilePos.get(tile)}; ${dims};`,
             2: `transform: rotateX(${this.pitch}deg) rotateY(${
                 this.yaw + 90
-            }deg) translateZ(${this.vol}px) ${tilePos.get(tile)}; ${dims};`,
+            }deg) rotateZ(${this.rigLayRot}deg) translateZ(${
+                this.vol
+            }px) ${tilePos.get(tile)}; ${dims};`,
             3: `transform: rotateX(${this.pitch}deg) rotateY(${
                 this.yaw + 180
             }deg) translateZ(${this.vol}px) ${tilePos.get(tile)}; ${dims};`,
@@ -152,9 +156,9 @@ export class Pieces extends RenderSide {
         for (let i = 0; i < 8; i++) {
             for (let j = 0; j < 3; j++) {
                 this.renderSideEl(
-                    `tile_${state.crnr[crnPieces[i]].tileNr[j]}`,
-                    state.crnr[crnPieces[i]].cubeSide[j],
-                    state.crnr[crnPieces[i]].tilePos[j]
+                    `tile_${state.crnr[i].tileNr[j]}`,
+                    state.crnr[i].cubeSide[j],
+                    state.crnr[i].tilePos[j]
                 );
             }
         }
@@ -172,9 +176,9 @@ export class Pieces extends RenderSide {
         for (let i = 0; i < 12; i++) {
             for (let j = 0; j < 2; j++) {
                 this.renderSideEl(
-                    `tile_${state.edges[edgePieces[i]].tileNr[j]}`,
-                    state.edges[edgePieces[i]].cubeSide[j],
-                    state.edges[edgePieces[i]].tilePos[j]
+                    `tile_${state.edges[i].tileNr[j]}`,
+                    state.edges[i].cubeSide[j],
+                    state.edges[i].tilePos[j]
                 );
             }
         }
